@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Bot Factory — сайты, Telegram-боты и AI-интеграции под ключ для бизнеса в Беларуси."
+    />
+    <title>Bot Factory — цифровые продукты для бизнеса</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="preloader" aria-hidden="true">
+      <div class="preloader__curtain preloader__curtain--top"></div>
+      <div class="preloader__curtain preloader__curtain--bottom"></div>
+      <div class="preloader__brand">Bot Factory</div>
+      <div class="preloader__count">0</div>
+    </div>
+
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="#top" aria-label="Bot Factory">
+        <span class="brand__mark">BF</span>
+        <span class="brand__name">Bot Factory</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Основная навигация">
+        <a href="#services">Услуги</a>
+        <a href="#cases">Кейсы</a>
+        <a href="#process">Процесс</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+
+      <a class="btn btn--primary header-cta" href="https://t.me/botfactoryby">Обсудить проект</a>
+      <button class="menu-toggle" type="button" aria-label="Открыть меню" data-menu-toggle>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <div class="mobile-menu" data-mobile-menu>
+      <a href="#services">Услуги</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#process">Процесс</a>
+      <a href="#pricing">Цены</a>
+      <a href="#contact">Контакты</a>
+      <a class="btn btn--primary" href="https://t.me/botfactoryby">Обсудить проект</a>
+    </div>
+
+    <main id="top">
+      <section class="hero section-reveal">
+        <div class="hero__grid page-grid">
+          <div class="hero__copy">
+            <p class="mono-label">[ Минск · Беларусь · 2026 ]</p>
+            <h1>
+              <span>Делаем цифровые</span>
+              <span>продукты которые</span>
+              <span class="accent-line" data-morph>приносят клиентов</span>
+            </h1>
+          </div>
+
+          <div class="hero__side">
+            <p>Сайты. Telegram-боты. AI-интеграции. Под ключ для бизнеса в Беларуси.</p>
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="https://t.me/botfactoryby">Обсудить проект</a>
+              <a class="btn btn--ghost" href="#cases">Смотреть кейсы</a>
+            </div>
+            <div class="hero__mockup" data-cursor="case">
+              <img src="assets/mockup-pravobot.svg" alt="Мокап Telegram-бота ПравоБот BY" />
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-marquee" aria-label="Услуги Bot Factory">
+          <div class="marquee-track">
+            <span>Telegram-боты</span>
+            <span>Сайты на Next.js</span>
+            <span>AI-автоматизация</span>
+            <span>CRM-интеграции</span>
+            <span>Mini Apps</span>
+            <span>Telegram-боты</span>
+            <span>Сайты на Next.js</span>
+            <span>AI-автоматизация</span>
+            <span>CRM-интеграции</span>
+            <span>Mini Apps</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="proof section-reveal">
+        <div class="container proof__grid">
+          <article class="proof-card" data-cursor="card">
+            <span class="corner-mark"></span>
+            <h2>Работаем официально</h2>
+            <p class="proof-card__meta">НПД · УНП HE7170411</p>
+            <p>Шевелёв Е.В. Реквизиты открыты, условия фиксируются до начала работ.</p>
+          </article>
+          <article class="proof-card" data-cursor="card">
+            <span class="corner-mark"></span>
+            <h2>Договор и гарантия</h2>
+            <p class="proof-card__meta">Сроки · стоимость · этапы</p>
+            <p>Фиксируем понятные рамки проекта и даём 2 месяца гарантии на реализацию.</p>
+          </article>
+          <article class="proof-card" data-cursor="card">
+            <span class="corner-mark"></span>
+            <h2>Результат до запуска</h2>
+            <p class="proof-card__meta">Концепт до оплаты</p>
+            <p>Показываем, как будет выглядеть решение, прежде чем вы принимаете решение.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="services section-reveal" id="services">
+        <div class="container">
+          <div class="section-heading">
+            <p class="mono-label">[ 01 ]</p>
+            <h2>Что мы делаем</h2>
+          </div>
+
+          <div class="services__layout">
+            <div class="service-list" data-services>
+              <button class="service-row is-active" type="button" data-service="0">
+                <span>01</span>
+                <strong>Сайты</strong>
+                <em>Next.js / React</em>
+                <i aria-hidden="true">→</i>
+              </button>
+              <button class="service-row" type="button" data-service="1">
+                <span>02</span>
+                <strong>Telegram-боты</strong>
+                <em>Python / aiogram</em>
+                <i aria-hidden="true">→</i>
+              </button>
+              <button class="service-row" type="button" data-service="2">
+                <span>03</span>
+                <strong>Mini Apps</strong>
+                <em>TWA / WebGL</em>
+                <i aria-hidden="true">→</i>
+              </button>
+              <button class="service-row" type="button" data-service="3">
+                <span>04</span>
+                <strong>AI-интеграции</strong>
+                <em>GPT / LLM / RAG</em>
+                <i aria-hidden="true">→</i>
+              </button>
+            </div>
+
+            <aside class="service-preview" data-service-preview>
+              <p class="mono-label">[ смотреть → ]</p>
+              <h3>Сайты, которые продают без лишнего шума</h3>
+              <p>
+                Лендинги, корпоративные сайты и продуктовые страницы с быстрым запуском,
+                SEO-базой и аккуратной аналитикой.
+              </p>
+              <div class="tag-row">
+                <span>Next.js</span>
+                <span>React</span>
+                <span>SEO</span>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="offer section-reveal">
+        <div class="container">
+          <div class="offer__panel" data-cursor="card">
+            <div>
+              <h2>Не знаете с чего начать?</h2>
+              <p>Покажем концепт вашего проекта бесплатно — за 48 часов. Без обязательств.</p>
+              <a class="btn btn--dark" href="https://t.me/botfactoryby">Получить концепт</a>
+            </div>
+            <span class="offer__glyph" aria-hidden="true">✦</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="cases section-reveal" id="cases">
+        <div class="container">
+          <div class="section-heading section-heading--row">
+            <div>
+              <p class="mono-label">[ 02 ]</p>
+              <h2>Проекты</h2>
+            </div>
+            <p class="slide-count">01 / 03</p>
+          </div>
+
+          <div class="case-rail" aria-label="Кейсы Bot Factory">
+            <article class="case-card case-card--wide" data-cursor="case">
+              <img src="assets/mockup-pravobot.svg" alt="ПравоБот BY — AI-консультант по праву РБ" />
+              <div class="case-card__body">
+                <h3>ПравоБот BY</h3>
+                <p>AI-консультант по праву РБ</p>
+                <span>Telegram-бот · RAG · Qdrant</span>
+              </div>
+            </article>
+            <article class="case-card" data-cursor="case">
+              <img src="assets/mockup-crm.svg" alt="Мокап CRM-интеграции для сервиса" />
+              <div class="case-card__body">
+                <h3>Service Desk Bot</h3>
+                <p>Автоматизация заявок и статусов</p>
+                <span>Telegram API · Webhooks · Sheets</span>
+              </div>
+            </article>
+            <article class="case-card case-card--soon" data-cursor="case">
+              <div class="soon-plate">
+                <span>[ скоро ]</span>
+                <strong>AI Sales Assistant</strong>
+              </div>
+              <div class="case-card__body">
+                <h3>AI Sales Assistant</h3>
+                <p>Помощник для обработки лидов</p>
+                <span>OpenAI · CRM · Analytics</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="integrations section-reveal">
+        <div class="container">
+          <p class="mono-label">[ 03 ]</p>
+          <h2>Интегрируем с любой системой</h2>
+        </div>
+        <div class="integration-marquee">
+          <div class="marquee-track">
+            <span>amoCRM</span><span>Bitrix24</span><span>1С</span><span>Yclients</span><span>Planfix</span><span>МойСклад</span><span>OpenCart</span>
+            <span>amoCRM</span><span>Bitrix24</span><span>1С</span><span>Yclients</span><span>Planfix</span><span>МойСклад</span><span>OpenCart</span>
+          </div>
+          <div class="marquee-track marquee-track--reverse">
+            <span>OpenAI</span><span>Stripe</span><span>ERIP</span><span>Telegram API</span><span>REST API</span><span>Google Sheets</span><span>Webhooks</span>
+            <span>OpenAI</span><span>Stripe</span><span>ERIP</span><span>Telegram API</span><span>REST API</span><span>Google Sheets</span><span>Webhooks</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="process section-reveal" id="process">
+        <div class="container">
+          <div class="section-heading">
+            <p class="mono-label">[ 04 ]</p>
+            <h2>Как мы работаем</h2>
+          </div>
+          <div class="timeline">
+            <div class="timeline__line"></div>
+            <article>
+              <span>[ 01 ]</span>
+              <h3>Бриф</h3>
+              <p>Бесплатная консультация, фиксируем задачу и ограничения.</p>
+            </article>
+            <article>
+              <span>[ 02 ]</span>
+              <h3>Концепт</h3>
+              <p>Показываем, как будет выглядеть решение до оплаты.</p>
+            </article>
+            <article>
+              <span>[ 03 ]</span>
+              <h3>Разработка</h3>
+              <p>Пишем код, тестируем, итерируем по понятному плану.</p>
+            </article>
+            <article>
+              <span>[ 04 ]</span>
+              <h3>Запуск</h3>
+              <p>Деплой, SEO-база, аналитика и финальные проверки.</p>
+            </article>
+            <article>
+              <span>[ 05 ]</span>
+              <h3>Поддержка</h3>
+              <p>2 месяца гарантии, мониторинг и быстрые исправления.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="pricing section-reveal" id="pricing">
+        <div class="container">
+          <div class="section-heading">
+            <p class="mono-label">[ 05 ]</p>
+            <h2>Прозрачные цены</h2>
+          </div>
+          <div class="pricing__grid">
+            <article class="price-card">
+              <h3>Старт</h3>
+              <p class="price">от 690 BYN</p>
+              <p>Лендинг или простой Telegram-бот для проверки гипотезы.</p>
+              <a class="btn btn--ghost" href="https://t.me/botfactoryby">Узнать</a>
+            </article>
+            <article class="price-card price-card--featured">
+              <p class="mono-label">[ популярный ]</p>
+              <h3>Оптимал</h3>
+              <p class="price">от 1 490 BYN</p>
+              <p>Корпоративный сайт или Telegram-бот с логикой и интеграциями.</p>
+              <a class="btn btn--primary" href="https://t.me/botfactoryby">Обсудить</a>
+            </article>
+            <article class="price-card">
+              <h3>Максимум</h3>
+              <p class="price">от 2 490 BYN</p>
+              <p>Боты + AI + полный стек автоматизации под бизнес-процесс.</p>
+              <a class="btn btn--ghost" href="https://t.me/botfactoryby">Узнать</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="guarantees section-reveal">
+        <div class="container guarantees__grid">
+          <article><span>≡</span><h3>Договор</h3><p>Фиксируем всё до старта: этапы, суммы, сроки.</p></article>
+          <article><span>◎</span><h3>Гарантия</h3><p>2 месяца на исправление дефектов нашей реализации.</p></article>
+          <article><span>→</span><h3>Сроки</h3><p>Простые проекты — 1 неделя. Сложные — от 3 недель.</p></article>
+          <article><span>✓</span><h3>Официально</h3><p>НПД, УНП, договор, оплата по карте РБ.</p></article>
+        </div>
+      </section>
+
+      <section class="final-cta section-reveal" id="contact">
+        <div class="container final-cta__inner">
+          <h2>Готовы обсудить<br />ваш проект?</h2>
+          <p>Напишите — ответим в течение часа и предложим решение под вашу задачу.</p>
+          <div class="final-cta__actions">
+            <a class="btn btn--primary" href="https://t.me/botfactoryby">Написать в Telegram</a>
+            <a class="btn btn--ghost" href="mailto:botfactoryby@gmail.com">botfactoryby@gmail.com</a>
+          </div>
+          <a class="phone" href="tel:+375445414868">+375 44 541 48 68</a>
+        </div>
+      </section>
+
+      <section class="faq section-reveal">
+        <div class="container">
+          <div class="section-heading">
+            <p class="mono-label">[ FAQ ]</p>
+            <h2>Ответы на вопросы</h2>
+          </div>
+          <div class="faq__grid">
+            <details open>
+              <summary>Сколько стоит разработка?</summary>
+              <p>Простой старт — от 690 BYN. Точная стоимость зависит от логики, интеграций и сроков.</p>
+            </details>
+            <details>
+              <summary>Сколько времени занимает проект?</summary>
+              <p>Лендинг или простой бот — около недели. Комплексные решения обычно занимают от 3 недель.</p>
+            </details>
+            <details>
+              <summary>Работаете ли вы по договору?</summary>
+              <p>Да. Фиксируем этапы, сроки, сумму и гарантийные обязательства до старта.</p>
+            </details>
+            <details>
+              <summary>Что если результат не понравится?</summary>
+              <p>Сначала показываем концепт. Вы видите направление до оплаты и снижаете риск ошибки.</p>
+            </details>
+            <details>
+              <summary>Можете интегрировать с нашей CRM?</summary>
+              <p>Да. Работаем с amoCRM, Bitrix24, 1С, Google Sheets, REST API и webhooks.</p>
+            </details>
+            <details>
+              <summary>Разрабатываете сайты с нуля?</summary>
+              <p>Да. Делаем кастомную разработку, когда шаблон или конструктор ограничивает задачу.</p>
+            </details>
+            <details>
+              <summary>Работаете ли с клиентами не из Минска?</summary>
+              <p>Да. Работаем удалённо по Беларуси и за её пределами, если проект можно вести онлайн.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer__grid">
+        <div>
+          <h2>Bot Factory</h2>
+          <p>Минск, Беларусь</p>
+          <a href="mailto:botfactoryby@gmail.com">botfactoryby@gmail.com</a>
+          <a href="tel:+375445414868">+375 44 541 48 68</a>
+        </div>
+        <div>
+          <h3>Услуги</h3>
+          <a href="#services">Сайты</a>
+          <a href="#services">Telegram-боты</a>
+          <a href="#services">Mini Apps</a>
+          <a href="#services">AI-интеграции</a>
+        </div>
+        <div>
+          <h3>Соцсети</h3>
+          <a href="https://t.me/botfactoryby">Telegram</a>
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+      <p class="footer__legal">Шевелёв Егор Владимирович · УНП HE7170411 · © 2026 Bot Factory</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<svg width="900" height="660" viewBox="0 0 900 660" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="660" fill="#0A0A0A"/>
+  <rect x="72" y="50" width="756" height="560" rx="26" fill="#111111" stroke="#262626"/>
+  <rect x="106" y="86" width="688" height="58" rx="15" fill="#171717" stroke="#242424"/>
+  <circle cx="133" cy="115" r="8" fill="#C8F04C"/>
+  <text x="158" y="121" fill="#FFFFFF" font-family="Inter, Arial" font-size="20" font-weight="700">ПравоБот BY</text>
+  <text x="636" y="120" fill="#C8F04C" font-family="JetBrains Mono, monospace" font-size="14">online</text>
+  <rect x="106" y="174" width="404" height="82" rx="18" fill="#1B1B1B"/>
+  <text x="130" y="209" fill="#EDEDED" font-family="Inter, Arial" font-size="18" font-weight="600">Как оформить договор поставки?</text>
+  <text x="130" y="235" fill="#777777" font-family="Inter, Arial" font-size="15">Вопрос клиента</text>
+  <rect x="274" y="286" width="520" height="142" rx="20" fill="#C8F04C"/>
+  <text x="304" y="326" fill="#080808" font-family="Inter, Arial" font-size="20" font-weight="800">Кратко: проверьте 4 пункта</text>
+  <text x="304" y="362" fill="#080808" font-family="Inter, Arial" font-size="16">Предмет договора, сроки поставки, порядок оплаты</text>
+  <text x="304" y="389" fill="#080808" font-family="Inter, Arial" font-size="16">и ответственность сторон. Ниже — шаблон ответа.</text>
+  <rect x="304" y="406" width="166" height="1" fill="#080808" opacity=".3"/>
+  <rect x="106" y="462" width="688" height="104" rx="18" fill="#151515" stroke="#242424"/>
+  <text x="132" y="501" fill="#C8F04C" font-family="JetBrains Mono, monospace" font-size="14">RAG · Qdrant · Telegram API</text>
+  <text x="132" y="536" fill="#E8E8E8" font-family="Inter, Arial" font-size="18" font-weight="600">Ответ ссылается на базу знаний и сохраняет контекст диалога</text>
+  <path d="M690 474l24 24-24 24" stroke="#C8F04C" stroke-width="4" stroke-linecap="square" stroke-linejoin="bevel"/>
+</svg>

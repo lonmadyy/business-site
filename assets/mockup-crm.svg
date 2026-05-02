@@ -1,0 +1,27 @@
+<svg width="900" height="660" viewBox="0 0 900 660" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="660" fill="#0A0A0A"/>
+  <rect x="58" y="56" width="784" height="548" fill="#111111" stroke="#262626"/>
+  <rect x="96" y="94" width="176" height="472" fill="#151515" stroke="#242424"/>
+  <text x="122" y="135" fill="#FFFFFF" font-family="Inter, Arial" font-size="22" font-weight="800">Desk Bot</text>
+  <rect x="122" y="174" width="112" height="28" fill="#C8F04C"/>
+  <text x="134" y="193" fill="#080808" font-family="JetBrains Mono, monospace" font-size="12">requests</text>
+  <text x="122" y="246" fill="#777777" font-family="Inter, Arial" font-size="16">Клиенты</text>
+  <text x="122" y="294" fill="#777777" font-family="Inter, Arial" font-size="16">Статусы</text>
+  <text x="122" y="342" fill="#777777" font-family="Inter, Arial" font-size="16">Интеграции</text>
+  <rect x="306" y="94" width="498" height="86" fill="#171717" stroke="#242424"/>
+  <text x="336" y="130" fill="#C8F04C" font-family="JetBrains Mono, monospace" font-size="13">webhook received</text>
+  <text x="336" y="157" fill="#FFFFFF" font-family="Inter, Arial" font-size="22" font-weight="700">Новая заявка из Telegram</text>
+  <rect x="306" y="214" width="232" height="146" fill="#151515" stroke="#242424"/>
+  <text x="334" y="255" fill="#FFFFFF" font-family="Inter, Arial" font-size="18" font-weight="700">CRM</text>
+  <text x="334" y="291" fill="#777777" font-family="Inter, Arial" font-size="15">Создан лид</text>
+  <rect x="334" y="320" width="102" height="8" fill="#C8F04C"/>
+  <rect x="572" y="214" width="232" height="146" fill="#151515" stroke="#242424"/>
+  <text x="600" y="255" fill="#FFFFFF" font-family="Inter, Arial" font-size="18" font-weight="700">Sheets</text>
+  <text x="600" y="291" fill="#777777" font-family="Inter, Arial" font-size="15">Записана строка</text>
+  <rect x="600" y="320" width="132" height="8" fill="#C8F04C"/>
+  <rect x="306" y="394" width="498" height="172" fill="#151515" stroke="#242424"/>
+  <text x="336" y="435" fill="#FFFFFF" font-family="Inter, Arial" font-size="20" font-weight="800">Автоматический статус клиенту</text>
+  <text x="336" y="474" fill="#777777" font-family="Inter, Arial" font-size="16">Бот отправил сообщение, менеджер получил уведомление,</text>
+  <text x="336" y="501" fill="#777777" font-family="Inter, Arial" font-size="16">лид попал в CRM без ручного копирования.</text>
+  <path d="M746 517h30v30" stroke="#C8F04C" stroke-width="4"/>
+</svg>
