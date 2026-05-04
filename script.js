@@ -1,6 +1,6 @@
 const header = document.querySelector("[data-header]");
 const preloader = document.querySelector(".preloader");
-const preloaderCount = document.querySelector(".preloader__count");
+const preloaderBar = document.querySelector("[data-preloader-bar]");
 const menuToggle = document.querySelector("[data-menu-toggle]");
 const mobileMenu = document.querySelector("[data-mobile-menu]");
 const morphTarget = document.querySelector("[data-morph]");
@@ -8,6 +8,9 @@ const cursorDot = document.querySelector(".cursor-dot");
 const cursorRing = document.querySelector(".cursor-ring");
 const serviceRows = [...document.querySelectorAll("[data-service]")];
 const servicePreview = document.querySelector("[data-service-preview]");
+const pricingTabs = [...document.querySelectorAll("[data-pricing-tab]")];
+const planCards = [...document.querySelectorAll("[data-plan-card]")];
+const pricingNote = document.querySelector("[data-pricing-note]");
 
 const serviceContent = [
   {
@@ -32,26 +35,138 @@ const serviceContent = [
   },
 ];
 
+const pricingContent = {
+  sites: {
+    note: "Три варианта для сайтов: от быстрого лендинга до продукта с кабинетом.",
+    plans: [
+      {
+        badge: "[ старт ]",
+        title: "Лендинг",
+        price: "от 690 BYN",
+        description: "Одна сильная страница для заявки, рекламы или проверки идеи.",
+        includes: ["Структура и тексты", "Адаптивная верстка", "Базовая аналитика"],
+      },
+      {
+        badge: "[ оптимал ]",
+        title: "Корпоративный сайт",
+        price: "от 1 490 BYN",
+        description: "Сайт под услуги, доверие и стабильный поток обращений.",
+        includes: ["До 6 смысловых блоков", "SEO-база и скорость", "Контакты и цели"],
+      },
+      {
+        badge: "[ максимум ]",
+        title: "Сайт + кабинет",
+        price: "от 2 490 BYN",
+        description: "Проект со сложной логикой, личным кабинетом или интеграциями.",
+        includes: ["Фронтенд + backend", "Интеграции с API", "Подготовка к росту"],
+      },
+    ],
+  },
+  bots: {
+    note: "Три варианта для Telegram-ботов: от простого сценария до автоматизации процесса.",
+    plans: [
+      {
+        badge: "[ старт ]",
+        title: "Бот-заявка",
+        price: "от 690 BYN",
+        description: "Бот принимает обращения, задаёт вопросы и отправляет заявки вам.",
+        includes: ["Сценарий диалога", "Уведомления в Telegram", "Админ-настройки"],
+      },
+      {
+        badge: "[ оптимал ]",
+        title: "Бот с логикой",
+        price: "от 1 490 BYN",
+        description: "Личный кабинет, статусы, простые оплаты или связка с таблицами.",
+        includes: ["Пользовательские роли", "Интеграция с Sheets/API", "История обращений"],
+      },
+      {
+        badge: "[ максимум ]",
+        title: "Бот-платформа",
+        price: "от 2 490 BYN",
+        description: "Сложная автоматизация с CRM, оплатами, базой данных и поддержкой.",
+        includes: ["Backend и база данных", "CRM / платежи / webhooks", "Мониторинг запуска"],
+      },
+    ],
+  },
+  systems: {
+    note: "Для AI, Mini Apps и интеграций — понятные пакеты от пилота до полного контура.",
+    plans: [
+      {
+        badge: "[ старт ]",
+        title: "AI-пилот",
+        price: "от 790 BYN",
+        description: "Проверяем гипотезу: ассистент, обработка текста или простая интеграция.",
+        includes: ["Короткий сценарий", "Подключение API", "Демо на ваших данных"],
+      },
+      {
+        badge: "[ оптимал ]",
+        title: "Интеграция",
+        price: "от 1 690 BYN",
+        description: "Связываем CRM, Telegram, таблицы, платежи или внешние сервисы.",
+        includes: ["Карта процесса", "REST API / webhooks", "Логи и контроль ошибок"],
+      },
+      {
+        badge: "[ максимум ]",
+        title: "AI + Mini App",
+        price: "от 2 900 BYN",
+        description: "Полноценный интерфейс, AI-логика, хранение данных и бизнес-автоматизация.",
+        includes: ["Mini App интерфейс", "RAG / база знаний", "Поддержка после запуска"],
+      },
+    ],
+  },
+};
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 let preloaderValue = 0;
 const preloadTimer = window.setInterval(() => {
-  preloaderValue = Math.min(100, preloaderValue + Math.ceil(Math.random() * 9));
-  preloaderCount.textContent = String(preloaderValue).padStart(2, "0");
+  preloaderValue = Math.min(100, preloaderValue + (prefersReducedMotion ? 34 : Math.ceil(Math.random() * 9)));
+  preloaderBar.style.width = `${preloaderValue}%`;
   if (preloaderValue >= 100) {
     window.clearInterval(preloadTimer);
+    preloader.classList.add("is-complete");
     window.setTimeout(() => {
       preloader.classList.add("is-leaving");
-      window.setTimeout(() => preloader.classList.add("is-hidden"), 920);
-    }, 240);
+      window.setTimeout(() => preloader.classList.add("is-hidden"), prefersReducedMotion ? 180 : 760);
+    }, prefersReducedMotion ? 60 : 220);
   }
-}, 60);
+}, prefersReducedMotion ? 40 : 58);
 
-if (window.Lenis && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-  const lenis = new window.Lenis({ lerp: 0.085, smoothWheel: true });
+let lenisInstance = null;
+if (window.Lenis && !prefersReducedMotion) {
+  lenisInstance = new window.Lenis({ lerp: 0.085, smoothWheel: true });
   const raf = (time) => {
-    lenis.raf(time);
+    lenisInstance.raf(time);
     requestAnimationFrame(raf);
   };
   requestAnimationFrame(raf);
+}
+
+function scrollToTarget(target) {
+  const offset = window.innerWidth <= 980 ? 88 : 104;
+  const top = target.getBoundingClientRect().top + window.scrollY - offset;
+  if (lenisInstance) {
+    lenisInstance.scrollTo(top, { duration: 1.1 });
+  } else {
+    window.scrollTo({ top, behavior: "smooth" });
+  }
+}
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const target = document.querySelector(link.getAttribute("href"));
+    if (!target) return;
+    event.preventDefault();
+    scrollToTarget(target);
+    history.pushState(null, "", link.getAttribute("href"));
+  });
+});
+
+if (window.location.hash) {
+  window.setTimeout(() => {
+    const target = document.querySelector(window.location.hash);
+    if (target) scrollToTarget(target);
+  }, 120);
 }
 
 const updateHeader = () => {
@@ -126,6 +241,34 @@ serviceRows.forEach((row) => {
   row.addEventListener("mouseenter", () => renderService(index));
   row.addEventListener("focus", () => renderService(index));
   row.addEventListener("click", () => renderService(index));
+});
+
+function renderPricing(category) {
+  const data = pricingContent[category];
+  if (!data) return;
+
+  pricingNote.textContent = data.note;
+  pricingTabs.forEach((tab) => {
+    const isActive = tab.dataset.pricingTab === category;
+    tab.classList.toggle("is-active", isActive);
+    tab.setAttribute("aria-selected", String(isActive));
+    if (isActive) {
+      tab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    }
+  });
+
+  planCards.forEach((card, index) => {
+    const plan = data.plans[index];
+    card.querySelector("[data-plan-badge]").textContent = plan.badge;
+    card.querySelector("[data-plan-title]").textContent = plan.title;
+    card.querySelector("[data-plan-price]").textContent = plan.price;
+    card.querySelector("[data-plan-description]").textContent = plan.description;
+    card.querySelector("[data-plan-includes]").innerHTML = plan.includes.map((item) => `<li>${item}</li>`).join("");
+  });
+}
+
+pricingTabs.forEach((tab) => {
+  tab.addEventListener("click", () => renderPricing(tab.dataset.pricingTab));
 });
 
 if (cursorDot && cursorRing) {

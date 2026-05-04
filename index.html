@@ -15,14 +15,33 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260505-bot-loader" />
   </head>
   <body>
     <div class="preloader" aria-hidden="true">
       <div class="preloader__curtain preloader__curtain--top"></div>
       <div class="preloader__curtain preloader__curtain--bottom"></div>
-      <div class="preloader__brand">Bot Factory</div>
-      <div class="preloader__count">0</div>
+      <div class="preloader__scene">
+        <div class="loader-bot">
+          <span class="loader-bot__orb loader-bot__orb--one"></span>
+          <span class="loader-bot__orb loader-bot__orb--two"></span>
+          <span class="loader-bot__orb loader-bot__orb--three"></span>
+          <div class="loader-bot__antenna"><span></span></div>
+          <div class="loader-bot__head">
+            <div class="loader-bot__visor">
+              <span></span>
+              <span></span>
+            </div>
+            <div class="loader-bot__mouth"></div>
+          </div>
+          <div class="loader-bot__body">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="preloader__bar"><span data-preloader-bar></span></div>
+      </div>
     </div>
 
     <div class="cursor-dot" aria-hidden="true"></div>
@@ -36,7 +55,6 @@
 
       <nav class="desktop-nav" aria-label="Основная навигация">
         <a href="#services">Услуги</a>
-        <a href="#cases">Кейсы</a>
         <a href="#process">Процесс</a>
         <a href="#contact">Контакты</a>
       </nav>
@@ -50,7 +68,6 @@
 
     <div class="mobile-menu" data-mobile-menu>
       <a href="#services">Услуги</a>
-      <a href="#cases">Кейсы</a>
       <a href="#process">Процесс</a>
       <a href="#pricing">Цены</a>
       <a href="#contact">Контакты</a>
@@ -73,26 +90,8 @@
             <p>Сайты. Telegram-боты. AI-интеграции. Под ключ для бизнеса в Беларуси.</p>
             <div class="hero__actions">
               <a class="btn btn--primary" href="https://t.me/botfactoryby">Обсудить проект</a>
-              <a class="btn btn--ghost" href="#cases">Смотреть кейсы</a>
+              <a class="btn btn--ghost" href="#pricing">Смотреть цены</a>
             </div>
-            <div class="hero__mockup" data-cursor="case">
-              <img src="assets/mockup-pravobot.svg" alt="Мокап Telegram-бота ПравоБот BY" />
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-marquee" aria-label="Услуги Bot Factory">
-          <div class="marquee-track">
-            <span>Telegram-боты</span>
-            <span>Сайты на Next.js</span>
-            <span>AI-автоматизация</span>
-            <span>CRM-интеграции</span>
-            <span>Mini Apps</span>
-            <span>Telegram-боты</span>
-            <span>Сайты на Next.js</span>
-            <span>AI-автоматизация</span>
-            <span>CRM-интеграции</span>
-            <span>Mini Apps</span>
           </div>
         </div>
       </section>
@@ -185,51 +184,9 @@
         </div>
       </section>
 
-      <section class="cases section-reveal" id="cases">
-        <div class="container">
-          <div class="section-heading section-heading--row">
-            <div>
-              <p class="mono-label">[ 02 ]</p>
-              <h2>Проекты</h2>
-            </div>
-            <p class="slide-count">01 / 03</p>
-          </div>
-
-          <div class="case-rail" aria-label="Кейсы Bot Factory">
-            <article class="case-card case-card--wide" data-cursor="case">
-              <img src="assets/mockup-pravobot.svg" alt="ПравоБот BY — AI-консультант по праву РБ" />
-              <div class="case-card__body">
-                <h3>ПравоБот BY</h3>
-                <p>AI-консультант по праву РБ</p>
-                <span>Telegram-бот · RAG · Qdrant</span>
-              </div>
-            </article>
-            <article class="case-card" data-cursor="case">
-              <img src="assets/mockup-crm.svg" alt="Мокап CRM-интеграции для сервиса" />
-              <div class="case-card__body">
-                <h3>Service Desk Bot</h3>
-                <p>Автоматизация заявок и статусов</p>
-                <span>Telegram API · Webhooks · Sheets</span>
-              </div>
-            </article>
-            <article class="case-card case-card--soon" data-cursor="case">
-              <div class="soon-plate">
-                <span>[ скоро ]</span>
-                <strong>AI Sales Assistant</strong>
-              </div>
-              <div class="case-card__body">
-                <h3>AI Sales Assistant</h3>
-                <p>Помощник для обработки лидов</p>
-                <span>OpenAI · CRM · Analytics</span>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
       <section class="integrations section-reveal">
         <div class="container">
-          <p class="mono-label">[ 03 ]</p>
+          <p class="mono-label">[ 02 ]</p>
           <h2>Интегрируем с любой системой</h2>
         </div>
         <div class="integration-marquee">
@@ -247,7 +204,7 @@
       <section class="process section-reveal" id="process">
         <div class="container">
           <div class="section-heading">
-            <p class="mono-label">[ 04 ]</p>
+            <p class="mono-label">[ 03 ]</p>
             <h2>Как мы работаем</h2>
           </div>
           <div class="timeline">
@@ -283,28 +240,66 @@
 
       <section class="pricing section-reveal" id="pricing">
         <div class="container">
-          <div class="section-heading">
-            <p class="mono-label">[ 05 ]</p>
-            <h2>Прозрачные цены</h2>
+          <div class="section-heading section-heading--row pricing__heading">
+            <div>
+              <p class="mono-label">[ 04 ]</p>
+              <h2>Цены без сюрпризов</h2>
+            </div>
+            <p class="pricing__note" data-pricing-note>
+              Три варианта для сайтов: от быстрого лендинга до продукта с кабинетом.
+            </p>
           </div>
+
+          <div class="pricing-switch" role="tablist" aria-label="Категории цен">
+            <button class="is-active" type="button" role="tab" aria-selected="true" data-pricing-tab="sites">
+              <span>01</span>
+              Сайты
+            </button>
+            <button type="button" role="tab" aria-selected="false" data-pricing-tab="bots">
+              <span>02</span>
+              Telegram-боты
+            </button>
+            <button type="button" role="tab" aria-selected="false" data-pricing-tab="systems">
+              <span>03</span>
+              AI / интеграции
+            </button>
+          </div>
+
           <div class="pricing__grid">
-            <article class="price-card">
-              <h3>Старт</h3>
-              <p class="price">от 690 BYN</p>
-              <p>Лендинг или простой Telegram-бот для проверки гипотезы.</p>
+            <article class="price-card" data-plan-card="0">
+              <p class="mono-label price-card__kicker" data-plan-badge>[ старт ]</p>
+              <h3 data-plan-title>Лендинг</h3>
+              <p class="price" data-plan-price>от 690 BYN</p>
+              <p data-plan-description>Одна сильная страница для заявки, рекламы или проверки идеи.</p>
+              <ul class="price-card__includes" data-plan-includes>
+                <li>Структура и тексты</li>
+                <li>Адаптивная верстка</li>
+                <li>Базовая аналитика</li>
+              </ul>
               <a class="btn btn--ghost" href="https://t.me/botfactoryby">Узнать</a>
             </article>
-            <article class="price-card price-card--featured">
-              <p class="mono-label">[ популярный ]</p>
-              <h3>Оптимал</h3>
-              <p class="price">от 1 490 BYN</p>
-              <p>Корпоративный сайт или Telegram-бот с логикой и интеграциями.</p>
+            <article class="price-card price-card--featured" data-plan-card="1">
+              <p class="mono-label price-card__kicker" data-plan-badge>[ оптимал ]</p>
+              <h3 data-plan-title>Корпоративный сайт</h3>
+              <p class="price" data-plan-price>от 1 490 BYN</p>
+              <p data-plan-description>Сайт под услуги, доверие и стабильный поток обращений.</p>
+              <ul class="price-card__includes" data-plan-includes>
+                <li>До 6 смысловых блоков</li>
+                <li>SEO-база и скорость</li>
+                <li>Контакты и цели</li>
+              </ul>
               <a class="btn btn--primary" href="https://t.me/botfactoryby">Обсудить</a>
             </article>
-            <article class="price-card">
-              <h3>Максимум</h3>
-              <p class="price">от 2 490 BYN</p>
-              <p>Боты + AI + полный стек автоматизации под бизнес-процесс.</p>
+            <article class="price-card" data-plan-card="2">
+              <p class="mono-label price-card__kicker" data-plan-badge>[ максимум ]</p>
+              <h3 data-plan-title>Сайт + кабинет</h3>
+              <p class="price" data-plan-price>от 2 490 BYN</p>
+              <p data-plan-description>Проект со сложной логикой, личным кабинетом или интеграциями.</p>
+              <ul class="price-card__includes" data-plan-includes>
+                <li>Фронтенд + backend</li>
+                <li>Интеграции с API</li>
+                <li>Подготовка к росту</li>
+              </ul>
               <a class="btn btn--ghost" href="https://t.me/botfactoryby">Узнать</a>
             </article>
           </div>
@@ -398,6 +393,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=20260505-bot-loader"></script>
   </body>
 </html>
