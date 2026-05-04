@@ -134,7 +134,7 @@ const preloadTimer = window.setInterval(() => {
 
 let lenisInstance = null;
 if (window.Lenis && !prefersReducedMotion) {
-  lenisInstance = new window.Lenis({ lerp: 0.085, smoothWheel: true });
+  lenisInstance = new window.Lenis({ lerp: 0.09, smoothWheel: true, smoothTouch: false, wheelMultiplier: 0.9 });
   const raf = (time) => {
     lenisInstance.raf(time);
     requestAnimationFrame(raf);
@@ -143,12 +143,20 @@ if (window.Lenis && !prefersReducedMotion) {
 }
 
 function scrollToTarget(target) {
+  const revealWithoutTransition = target.classList.contains("section-reveal") && !target.classList.contains("is-visible");
+  if (revealWithoutTransition) target.style.transition = "none";
+  target.classList.add("is-visible");
+  target.querySelector(".timeline")?.classList.add("is-visible");
+  if (revealWithoutTransition) {
+    target.offsetHeight;
+    target.style.transition = "";
+  }
   const offset = window.innerWidth <= 980 ? 88 : 104;
   const top = target.getBoundingClientRect().top + window.scrollY - offset;
   if (lenisInstance) {
-    lenisInstance.scrollTo(top, { duration: 1.1 });
+    lenisInstance.scrollTo(top, { duration: 0.9 });
   } else {
-    window.scrollTo({ top, behavior: "smooth" });
+    window.scrollTo({ top, behavior: prefersReducedMotion ? "auto" : "smooth" });
   }
 }
 
@@ -194,14 +202,14 @@ window.setInterval(() => {
   morphTarget.animate(
     [
       { opacity: 1, filter: "blur(0)", transform: "translateY(0)" },
-      { opacity: 0, filter: "blur(12px)", transform: "translateY(12px)" },
+      { opacity: 0, filter: "blur(4px)", transform: "translateY(8px)" },
     ],
     { duration: 240, easing: "ease-in", fill: "forwards" }
   ).onfinish = () => {
     morphTarget.textContent = phrases[phraseIndex];
     morphTarget.animate(
       [
-        { opacity: 0, filter: "blur(12px)", transform: "translateY(-12px)" },
+        { opacity: 0, filter: "blur(4px)", transform: "translateY(-8px)" },
         { opacity: 1, filter: "blur(0)", transform: "translateY(0)" },
       ],
       { duration: 420, easing: "cubic-bezier(.19,1,.22,1)", fill: "forwards" }
