@@ -1,0 +1,29 @@
+# Bot Factory
+
+Bot Factory делает цифровые продукты под ключ для бизнеса в Минске и Беларуси.
+
+## Services
+
+- Сайты и лендинги для заявок, рекламы, услуг и проверки идей.
+- Telegram-боты для заявок, оплат, уведомлений, личных кабинетов и внутренних процессов.
+- Mini Apps и лёгкие веб-приложения с каталогами, бронированиями и интеграциями.
+- AI-интеграции: ассистенты, RAG-поиск, обработка обращений, генерация документов и связка с CRM.
+
+## Location
+
+- Минск, Беларусь.
+- Работа возможна удалённо по Беларуси и за её пределами.
+
+## Contact
+
+- Telegram: https://t.me/botfactoryby
+- Email: botfactoryby@gmail.com
+- Phone: +375 44 541 48 68
+
+## Key pages
+
+- Home: https://example.com/
+- Services: https://example.com/#services
+- Pricing: https://example.com/#pricing
+- Process: https://example.com/#process
+- Contact: https://example.com/#contact

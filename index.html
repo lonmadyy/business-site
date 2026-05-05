@@ -5,9 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Bot Factory — сайты, Telegram-боты и AI-интеграции под ключ для бизнеса в Беларуси."
+      content="Bot Factory делает сайты, Telegram-боты и AI-интеграции под ключ для бизнеса в Минске и Беларуси: запуск, автоматизация и рост заявок."
     />
-    <title>Bot Factory — цифровые продукты для бизнеса</title>
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0a0b0a" />
+    <link rel="canonical" href="https://example.com/" />
+    <title>Bot Factory — сайты, Telegram-боты и AI-интеграции в Минске</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ru_BY" />
+    <meta property="og:site_name" content="Bot Factory" />
+    <meta property="og:title" content="Bot Factory — цифровые продукты для бизнеса в Беларуси" />
+    <meta
+      property="og:description"
+      content="Сайты, Telegram-боты, Mini Apps и AI-интеграции под ключ для бизнеса в Минске и Беларуси."
+    />
+    <meta property="og:url" content="https://example.com/" />
+    <meta property="og:image" content="https://example.com/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Bot Factory — цифровые продукты для бизнеса" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bot Factory — сайты, боты и AI-интеграции" />
+    <meta
+      name="twitter:description"
+      content="Цифровые продукты под ключ для бизнеса в Минске и Беларуси."
+    />
+    <meta name="twitter:image" content="https://example.com/assets/og-image.png" />
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,7 +38,58 @@
       href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260505-terminal-hero" />
+    <link rel="stylesheet" href="styles.css?v=20260505-lenis-css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Bot Factory",
+        "url": "https://example.com/",
+        "image": "https://example.com/assets/og-image.png",
+        "description": "Bot Factory делает сайты, Telegram-боты, Mini Apps и AI-интеграции под ключ для бизнеса в Минске и Беларуси.",
+        "email": "botfactoryby@gmail.com",
+        "telephone": "+375445414868",
+        "areaServed": [
+          {
+            "@type": "Country",
+            "name": "Belarus"
+          },
+          {
+            "@type": "City",
+            "name": "Minsk"
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Минск",
+          "addressCountry": "BY"
+        },
+        "sameAs": ["https://t.me/botfactoryby"],
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Сайты под ключ"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Telegram-боты"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI-интеграции"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="preloader" aria-hidden="true">
@@ -60,19 +134,26 @@
       </nav>
 
       <a class="btn btn--primary header-cta" href="https://t.me/botfactoryby">Обсудить проект</a>
-      <button class="menu-toggle" type="button" aria-label="Открыть меню" data-menu-toggle>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Открыть меню"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        data-menu-toggle
+      >
         <span></span>
         <span></span>
       </button>
     </header>
 
-    <div class="mobile-menu" data-mobile-menu>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Мобильная навигация" data-mobile-menu hidden>
       <a href="#services">Услуги</a>
       <a href="#process">Процесс</a>
       <a href="#pricing">Цены</a>
       <a href="#contact">Контакты</a>
       <a class="btn btn--primary" href="https://t.me/botfactoryby">Обсудить проект</a>
-    </div>
+    </nav>
 
     <main id="top">
       <section class="hero section-reveal">
@@ -281,21 +362,46 @@
           </div>
 
           <div class="pricing-switch" role="tablist" aria-label="Категории цен">
-            <button class="is-active" type="button" role="tab" aria-selected="true" data-pricing-tab="sites">
+            <button
+              class="is-active"
+              id="pricing-tab-sites"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="pricing-panel"
+              tabindex="0"
+              data-pricing-tab="sites"
+            >
               <span>01</span>
               Сайты
             </button>
-            <button type="button" role="tab" aria-selected="false" data-pricing-tab="bots">
+            <button
+              id="pricing-tab-bots"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="pricing-panel"
+              tabindex="-1"
+              data-pricing-tab="bots"
+            >
               <span>02</span>
               Telegram-боты
             </button>
-            <button type="button" role="tab" aria-selected="false" data-pricing-tab="systems">
+            <button
+              id="pricing-tab-systems"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="pricing-panel"
+              tabindex="-1"
+              data-pricing-tab="systems"
+            >
               <span>03</span>
               AI / интеграции
             </button>
           </div>
 
-          <div class="pricing__grid">
+          <div class="pricing__grid" id="pricing-panel" role="tabpanel" aria-labelledby="pricing-tab-sites" aria-live="polite">
             <article class="price-card" data-plan-card="0">
               <p class="mono-label price-card__kicker" data-plan-badge>[ старт ]</p>
               <h3 data-plan-title>Лендинг</h3>
@@ -422,7 +528,7 @@
       <p class="footer__legal">Шевелёв Егор Владимирович · УНП HE7170411 · © 2026 Bot Factory</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
-    <script src="script.js?v=20260505-terminal-hero-smooth"></script>
+    <script src="assets/vendor/lenis-1.0.42.min.js"></script>
+    <script src="script.js?v=20260505-mobile-a11y-menu"></script>
   </body>
 </html>

@@ -22,6 +22,10 @@ html {
   background: var(--bg);
 }
 
+html.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
 body {
   margin: 0;
   color: var(--text);
@@ -539,12 +543,19 @@ img {
   position: fixed;
   inset: 0;
   z-index: 90;
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 26px;
   padding: 32px;
   background: rgba(8, 8, 8, 0.96);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition:
+    opacity 180ms ease,
+    transform 220ms var(--ease);
+  visibility: hidden;
 }
 
 .mobile-menu a:not(.btn) {
@@ -554,7 +565,10 @@ img {
 }
 
 .mobile-menu.is-open {
-  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  visibility: visible;
 }
 
 .hero {
@@ -601,7 +615,8 @@ img {
   position: relative;
   grid-column: 1 / -1;
   display: flex;
-  min-height: min(620px, calc(100vh - 216px));
+  height: min(740px, calc(100vh - 140px));
+  min-height: 680px;
   flex-direction: column;
   overflow: hidden;
   border: 1px solid rgba(200, 240, 76, 0.26);
@@ -706,6 +721,7 @@ img {
 
 .hero h1 {
   max-width: 980px;
+  min-height: 285px;
   margin: 20px 0 0;
   font-family: var(--mono);
   font-size: 72px;
@@ -1534,6 +1550,10 @@ img {
     padding: 0 16px;
   }
 
+  .brand {
+    min-height: 44px;
+  }
+
   [id] {
     scroll-margin-top: 88px;
   }
@@ -1571,6 +1591,7 @@ img {
   }
 
   .hero__terminal {
+    height: auto;
     min-height: auto;
   }
 
@@ -1585,6 +1606,7 @@ img {
 
   .hero h1 {
     font-size: 48px;
+    min-height: auto;
   }
 
   .hero__side {
@@ -1644,6 +1666,25 @@ img {
   .pricing-switch {
     display: flex;
     width: 100%;
+    padding-bottom: 10px;
+    background:
+      linear-gradient(90deg, rgba(255, 255, 255, 0.7) calc(100% - 32px), rgba(200, 240, 76, 0.28)),
+      rgba(255, 255, 255, 0.7);
+    scrollbar-color: #7c9b00 #eef0df;
+    scrollbar-width: thin;
+  }
+
+  .pricing-switch::-webkit-scrollbar {
+    display: block;
+    height: 8px;
+  }
+
+  .pricing-switch::-webkit-scrollbar-track {
+    background: #eef0df;
+  }
+
+  .pricing-switch::-webkit-scrollbar-thumb {
+    background: #7c9b00;
   }
 
   .pricing-switch button {
@@ -1717,6 +1758,14 @@ img {
 
   .final-cta__actions .btn {
     width: 100%;
+  }
+
+  .phone,
+  .site-footer a {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    margin-bottom: 0;
   }
 
   .footer__legal {

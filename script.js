@@ -11,6 +11,15 @@ const servicePreview = document.querySelector("[data-service-preview]");
 const pricingTabs = [...document.querySelectorAll("[data-pricing-tab]")];
 const planCards = [...document.querySelectorAll("[data-plan-card]")];
 const pricingNote = document.querySelector("[data-pricing-note]");
+const pricingPanel = document.querySelector("#pricing-panel");
+const pageInertTargets = [
+  document.querySelector("main"),
+  document.querySelector(".site-footer"),
+  header.querySelector(".brand"),
+  header.querySelector(".desktop-nav"),
+  header.querySelector(".header-cta"),
+].filter(Boolean);
+let menuHideTimer = null;
 
 const serviceContent = [
   {
@@ -183,19 +192,60 @@ const updateHeader = () => {
 window.addEventListener("scroll", updateHeader, { passive: true });
 updateHeader();
 
-menuToggle.addEventListener("click", () => {
-  const isOpen = mobileMenu.classList.toggle("is-open");
+function setPageInert(isInert) {
+  pageInertTargets.forEach((target) => {
+    target.inert = isInert;
+    if (isInert) {
+      target.setAttribute("aria-hidden", "true");
+    } else {
+      target.removeAttribute("aria-hidden");
+    }
+  });
+}
+
+function setMenuOpen(isOpen, restoreFocus = true) {
+  window.clearTimeout(menuHideTimer);
+  if (isOpen) {
+    mobileMenu.hidden = false;
+    mobileMenu.inert = false;
+    requestAnimationFrame(() => {
+      mobileMenu.classList.add("is-open");
+      mobileMenu.querySelector("a")?.focus();
+    });
+  } else {
+    mobileMenu.classList.remove("is-open");
+    mobileMenu.inert = true;
+    menuHideTimer = window.setTimeout(() => {
+      mobileMenu.hidden = true;
+    }, prefersReducedMotion ? 0 : 220);
+  }
   document.body.classList.toggle("menu-open", isOpen);
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+  menuToggle.setAttribute("aria-label", isOpen ? "Закрыть меню" : "Открыть меню");
+  setPageInert(isOpen);
+
+  if (!isOpen && restoreFocus) {
+    menuToggle.focus();
+  }
+}
+
+menuToggle.addEventListener("click", () => {
+  setMenuOpen(mobileMenu.hidden);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !mobileMenu.hidden) {
+    setMenuOpen(false);
+  }
 });
 
 mobileMenu.querySelectorAll("a").forEach((link) => {
   link.addEventListener("click", () => {
-    mobileMenu.classList.remove("is-open");
-    document.body.classList.remove("menu-open");
+    setMenuOpen(false);
   });
 });
 
-const phrases = ["приносят клиентов", "работают 24/7", "растут вместе с вами"];
+const phrases = ["приносят клиентов", "работают 24/7", "продают"];
 let phraseIndex = 0;
 window.setInterval(() => {
   phraseIndex = (phraseIndex + 1) % phrases.length;
@@ -236,12 +286,26 @@ document.querySelectorAll(".section-reveal").forEach((section) => revealObserver
 function renderService(index) {
   const item = serviceContent[index];
   serviceRows.forEach((row) => row.classList.toggle("is-active", Number(row.dataset.service) === index));
-  servicePreview.innerHTML = `
-    <p class="mono-label">[ смотреть → ]</p>
-    <h3>${item.title}</h3>
-    <p>${item.body}</p>
-    <div class="tag-row">${item.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>
-  `;
+
+  const label = document.createElement("p");
+  label.className = "mono-label";
+  label.textContent = "[ смотреть → ]";
+
+  const title = document.createElement("h3");
+  title.textContent = item.title;
+
+  const body = document.createElement("p");
+  body.textContent = item.body;
+
+  const tags = document.createElement("div");
+  tags.className = "tag-row";
+  item.tags.forEach((tag) => {
+    const tagNode = document.createElement("span");
+    tagNode.textContent = tag;
+    tags.append(tagNode);
+  });
+
+  servicePreview.replaceChildren(label, title, body, tags);
 }
 
 serviceRows.forEach((row) => {
@@ -260,8 +324,10 @@ function renderPricing(category) {
     const isActive = tab.dataset.pricingTab === category;
     tab.classList.toggle("is-active", isActive);
     tab.setAttribute("aria-selected", String(isActive));
+    tab.setAttribute("tabindex", isActive ? "0" : "-1");
     if (isActive) {
-      tab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      pricingPanel?.setAttribute("aria-labelledby", tab.id);
+      tab.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", inline: "center", block: "nearest" });
     }
   });
 
@@ -277,6 +343,28 @@ function renderPricing(category) {
 
 pricingTabs.forEach((tab) => {
   tab.addEventListener("click", () => renderPricing(tab.dataset.pricingTab));
+  tab.addEventListener("keydown", (event) => {
+    const currentIndex = pricingTabs.indexOf(tab);
+    const lastIndex = pricingTabs.length - 1;
+    const nextIndexByKey = {
+      ArrowRight: currentIndex === lastIndex ? 0 : currentIndex + 1,
+      ArrowLeft: currentIndex === 0 ? lastIndex : currentIndex - 1,
+      Home: 0,
+      End: lastIndex,
+    };
+
+    if (event.key in nextIndexByKey) {
+      event.preventDefault();
+      const nextTab = pricingTabs[nextIndexByKey[event.key]];
+      renderPricing(nextTab.dataset.pricingTab);
+      nextTab.focus();
+    }
+
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      renderPricing(tab.dataset.pricingTab);
+    }
+  });
 });
 
 if (cursorDot && cursorRing) {
