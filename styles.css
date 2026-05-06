@@ -548,7 +548,7 @@ img {
   justify-content: center;
   gap: 26px;
   padding: 32px;
-  background: rgba(8, 8, 8, 0.96);
+  background: var(--bg);
   opacity: 0;
   pointer-events: none;
   transform: translateY(-10px);
