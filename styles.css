@@ -1664,6 +1664,10 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .proof-card__meta {
+    margin-top: 36px;
+  }
+
   .pricing__heading {
     display: block;
   }
