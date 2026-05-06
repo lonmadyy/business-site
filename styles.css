@@ -729,6 +729,7 @@ img {
   line-height: 0.98;
   letter-spacing: 0;
   text-transform: lowercase;
+  text-wrap: balance;
 }
 
 .hero h1 span {
@@ -1786,7 +1787,7 @@ img {
 
 @media (max-width: 420px) {
   .hero h1 {
-    font-size: 34px;
+    font-size: 30px;
   }
 
   .hero__prompt {
