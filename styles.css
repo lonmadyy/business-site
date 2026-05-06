@@ -1525,7 +1525,6 @@ img {
   margin: 60px auto 0;
   padding-top: 24px;
   border-top: 1px solid var(--border);
-  color: var(--dim);
   font-family: var(--mono);
   font-size: 12px;
 }
