@@ -1693,7 +1693,9 @@ img {
   }
 
   .services__layout {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 32px;
   }
 
   .service-row {
