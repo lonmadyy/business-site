@@ -85,21 +85,32 @@
 
 ## Запуск локально
 
-Любой статический сервер из корня проекта. Примеры:
+Сайт собирается через [Eleventy 2.x](https://www.11ty.dev/) (статический генератор, Nunjucks-шаблоны). Один источник правды для shared-частей (header, footer, preloader, JSON-LD), на выходе — обычная статика.
 
 ```bash
-# Python 3
-python -m http.server 8000
-
-# Node
-npx http-server -p 8000 -c-1
-
-# VS Code: расширение Live Server
+npm install        # один раз
+npm run dev        # dev-сервер с live reload на http://localhost:8765
+npm run build      # сборка в _site/
 ```
 
-Открыть `http://localhost:8000/`.
+Деплоим содержимое `_site/` на любой статический хостинг (Vercel / Netlify / Cloudflare / S3 / nginx).
 
-> Прямое открытие `index.html` через `file://` тоже работает, но шрифты Google и относительные пути ведут себя предсказуемее на http-сервере.
+### Структура исходников
+
+```
+src/
+├── _data/            # JSON/JS-данные (site.js — глобал; services.js — данные услуг)
+├── _includes/
+│   ├── layouts/      # base.njk, service.njk
+│   └── partials/     # header, footer, hero-terminal, pricing-cards и т.д.
+├── static/           # passthrough в _site/ (styles.css, script.js, assets, robots.txt)
+├── index.njk         # главная
+├── sites.njk         # /sites/
+├── telegram-bots.njk # /telegram-bots/
+├── mini-apps.njk     # /mini-apps/
+├── ai.njk            # /ai/
+└── sitemap.njk       # генерация sitemap.xml
+```
 
 ## Доступность
 
