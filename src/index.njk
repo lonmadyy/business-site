@@ -64,69 +64,6 @@ canonicalPath: /
     </script>
 {% endblock %}
 {% block body %}
-    <div class="preloader" aria-hidden="true">
-      <div class="preloader__curtain preloader__curtain--top"></div>
-      <div class="preloader__curtain preloader__curtain--bottom"></div>
-      <div class="preloader__scene">
-        <div class="loader-bot">
-          <span class="loader-bot__orb loader-bot__orb--one"></span>
-          <span class="loader-bot__orb loader-bot__orb--two"></span>
-          <span class="loader-bot__orb loader-bot__orb--three"></span>
-          <div class="loader-bot__antenna"><span></span></div>
-          <div class="loader-bot__head">
-            <div class="loader-bot__visor">
-              <span></span>
-              <span></span>
-            </div>
-            <div class="loader-bot__mouth"></div>
-          </div>
-          <div class="loader-bot__body">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        <div class="preloader__bar"><span data-preloader-bar></span></div>
-      </div>
-    </div>
-
-    <div class="cursor-dot" aria-hidden="true"></div>
-    <div class="cursor-ring" aria-hidden="true"></div>
-
-    <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="Bot Factory">
-        <span class="brand__mark">BF</span>
-        <span class="brand__name">Bot Factory</span>
-      </a>
-
-      <nav class="desktop-nav" aria-label="Основная навигация">
-        <a href="#services">Услуги</a>
-        <a href="#process">Процесс</a>
-        <a href="#contact">Контакты</a>
-      </nav>
-
-      <a class="btn btn--primary header-cta" href="https://t.me/botfactoryby">Обсудить проект</a>
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-label="Открыть меню"
-        aria-controls="mobile-menu"
-        aria-expanded="false"
-        data-menu-toggle
-      >
-        <span></span>
-        <span></span>
-      </button>
-    </header>
-
-    <nav class="mobile-menu" id="mobile-menu" aria-label="Мобильная навигация" data-mobile-menu hidden>
-      <a href="#services">Услуги</a>
-      <a href="#process">Процесс</a>
-      <a href="#pricing">Цены</a>
-      <a href="#contact">Контакты</a>
-      <a class="btn btn--primary" href="https://t.me/botfactoryby">Обсудить проект</a>
-    </nav>
-
     <main id="top">
       <section class="hero section-reveal">
         <div class="hero__grid page-grid">
@@ -478,32 +415,4 @@ canonicalPath: /
         </div>
       </section>
     </main>
-
-    <footer class="site-footer">
-      <div class="container footer__grid">
-        <div>
-          <h2>Bot Factory</h2>
-          <p>Минск, Беларусь</p>
-          <a href="mailto:botfactoryby@gmail.com">botfactoryby@gmail.com</a>
-          <a href="tel:+375445414868">+375 44 541 48 68</a>
-        </div>
-        <div>
-          <h3>Услуги</h3>
-          <a href="#services">Сайты</a>
-          <a href="#services">Telegram-боты</a>
-          <a href="#services">Mini Apps</a>
-          <a href="#services">AI-интеграции</a>
-        </div>
-        <div>
-          <h3>Соцсети</h3>
-          <a href="https://t.me/botfactoryby">Telegram</a>
-          <a href="#">Instagram</a>
-          <a href="#">LinkedIn</a>
-        </div>
-      </div>
-      <p class="footer__legal">Шевелёв Егор Владимирович · УНП HE7170411 · © 2026 Bot Factory</p>
-    </footer>
-
-    <script src="/assets/vendor/lenis-1.0.42.min.js"></script>
-    <script src="/script.js?v={{ site.jsVersion }}"></script>
 {% endblock %}

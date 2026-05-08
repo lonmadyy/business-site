@@ -1,0 +1,25 @@
+{% set anchorBase = '' if page.url == '/' else '/' %}
+    <footer class="site-footer">
+      <div class="container footer__grid">
+        <div>
+          <h2>{{ site.brand }}</h2>
+          <p>Минск, Беларусь</p>
+          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+          <a href="tel:{{ site.phoneRaw }}">{{ site.phoneDisplay }}</a>
+        </div>
+        <div>
+          <h3>Услуги</h3>
+          <a href="{{ anchorBase }}#services">Сайты</a>
+          <a href="{{ anchorBase }}#services">Telegram-боты</a>
+          <a href="{{ anchorBase }}#services">Mini Apps</a>
+          <a href="{{ anchorBase }}#services">AI-интеграции</a>
+        </div>
+        <div>
+          <h3>Соцсети</h3>
+          <a href="{{ site.telegram }}">Telegram</a>
+          <a href="#">Instagram</a>
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+      <p class="footer__legal">Шевелёв Егор Владимирович · УНП HE7170411 · © 2026 {{ site.brand }}</p>
+    </footer>

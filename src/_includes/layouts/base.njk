@@ -5,6 +5,11 @@
 {% block json_ld %}{% endblock %}
   </head>
   <body>
+{% include "partials/preloader.njk" %}
+{% include "partials/header.njk" %}
+{% include "partials/mobile-menu.njk" %}
 {% block body %}{% endblock %}
+{% include "partials/footer.njk" %}
+{% include "partials/scripts.njk" %}
   </body>
 </html>

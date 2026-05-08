@@ -1,0 +1,8 @@
+{% set anchorBase = '' if page.url == '/' else '/' %}
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Мобильная навигация" data-mobile-menu hidden>
+      <a href="{{ anchorBase }}#services">Услуги</a>
+      <a href="{{ anchorBase }}#process">Процесс</a>
+      <a href="{{ anchorBase }}#pricing">Цены</a>
+      <a href="{{ anchorBase }}#contact">Контакты</a>
+      <a class="btn btn--primary" href="{{ site.telegram }}">Обсудить проект</a>
+    </nav>
