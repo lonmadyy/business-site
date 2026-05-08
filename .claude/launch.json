@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "static",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["http-server", "_site", "-p", "8765", "-c-1", "--silent"],
+      "port": 8765
+    },
+    {
+      "name": "eleventy",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["@11ty/eleventy", "--serve", "--port=8765"],
+      "port": 8765
+    }
+  ]
+}
