@@ -1,44 +1,16 @@
-<!doctype html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Bot Factory делает сайты, Telegram-боты и AI-интеграции под ключ для бизнеса в Минске и Беларуси: запуск, автоматизация и рост заявок."
-    />
-    <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#0a0b0a" />
-    <link rel="canonical" href="https://example.com/" />
-    <title>Bot Factory — сайты, Telegram-боты и AI-интеграции в Минске</title>
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="ru_BY" />
-    <meta property="og:site_name" content="Bot Factory" />
-    <meta property="og:title" content="Bot Factory — цифровые продукты для бизнеса в Беларуси" />
-    <meta
-      property="og:description"
-      content="Сайты, Telegram-боты, Mini Apps и AI-интеграции под ключ для бизнеса в Минске и Беларуси."
-    />
-    <meta property="og:url" content="https://example.com/" />
-    <meta property="og:image" content="https://example.com/assets/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Bot Factory — цифровые продукты для бизнеса" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Bot Factory — сайты, боты и AI-интеграции" />
-    <meta
-      name="twitter:description"
-      content="Цифровые продукты под ключ для бизнеса в Минске и Беларуси."
-    />
-    <meta name="twitter:image" content="https://example.com/assets/og-image.png" />
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css?v=20260507-fix-7" />
+---
+permalink: /index.html
+title: Bot Factory — сайты, Telegram-боты и AI-интеграции в Минске
+description: "Bot Factory делает сайты, Telegram-боты и AI-интеграции под ключ для бизнеса в Минске и Беларуси: запуск, автоматизация и рост заявок."
+ogTitle: Bot Factory — цифровые продукты для бизнеса в Беларуси
+ogDescription: Сайты, Telegram-боты, Mini Apps и AI-интеграции под ключ для бизнеса в Минске и Беларуси.
+twitterTitle: Bot Factory — сайты, боты и AI-интеграции
+twitterDescription: Цифровые продукты под ключ для бизнеса в Минске и Беларуси.
+ogImageAlt: Bot Factory — цифровые продукты для бизнеса
+canonicalPath: /
+---
+{% extends "layouts/base.njk" %}
+{% block json_ld %}
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -90,8 +62,8 @@
         ]
       }
     </script>
-  </head>
-  <body>
+{% endblock %}
+{% block body %}
     <div class="preloader" aria-hidden="true">
       <div class="preloader__curtain preloader__curtain--top"></div>
       <div class="preloader__curtain preloader__curtain--bottom"></div>
@@ -532,7 +504,6 @@
       <p class="footer__legal">Шевелёв Егор Владимирович · УНП HE7170411 · © 2026 Bot Factory</p>
     </footer>
 
-    <script src="assets/vendor/lenis-1.0.42.min.js"></script>
-    <script src="script.js?v=20260505-mobile-a11y-menu"></script>
-  </body>
-</html>
+    <script src="/assets/vendor/lenis-1.0.42.min.js"></script>
+    <script src="/script.js?v={{ site.jsVersion }}"></script>
+{% endblock %}
