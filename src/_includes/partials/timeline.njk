@@ -1,0 +1,27 @@
+{% set steps = processSteps or [
+  { kicker: '[ 01 ]', title: 'Бриф', body: 'Бесплатная консультация, фиксируем задачу и ограничения.' },
+  { kicker: '[ 02 ]', title: 'Концепт', body: 'Показываем, как будет выглядеть решение до оплаты.' },
+  { kicker: '[ 03 ]', title: 'Разработка', body: 'Пишем код, тестируем, итерируем по понятному плану.' },
+  { kicker: '[ 04 ]', title: 'Запуск', body: 'Деплой, SEO-база, аналитика и финальные проверки.' },
+  { kicker: '[ 05 ]', title: 'Поддержка', body: '2 месяца гарантии, мониторинг и быстрые исправления.' }
+] %}
+{% set kicker = processKicker or '[ 03 ]' %}
+{% set heading = processHeading or 'Как мы работаем' %}
+      <section class="process section-reveal" id="process">
+        <div class="container">
+          <div class="section-heading">
+            <p class="mono-label">{{ kicker }}</p>
+            <h2>{{ heading }}</h2>
+          </div>
+          <div class="timeline">
+            <div class="timeline__line"></div>
+            {% for step in steps %}
+            <article>
+              <span>{{ step.kicker }}</span>
+              <h3>{{ step.title }}</h3>
+              <p>{{ step.body }}</p>
+            </article>
+            {% endfor %}
+          </div>
+        </div>
+      </section>

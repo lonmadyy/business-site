@@ -1,0 +1,20 @@
+{% set row1 = integrationsRow1 or ['amoCRM','Bitrix24','1С','Yclients','Planfix','МойСклад','OpenCart'] %}
+{% set row2 = integrationsRow2 or ['OpenAI','Stripe','ERIP','Telegram API','REST API','Google Sheets','Webhooks'] %}
+{% set heading = integrationsHeading or 'Интегрируем с любой системой' %}
+{% set kicker = integrationsKicker or '[ 02 ]' %}
+      <section class="integrations section-reveal">
+        <div class="container">
+          <p class="mono-label">{{ kicker }}</p>
+          <h2>{{ heading }}</h2>
+        </div>
+        <div class="integration-marquee">
+          <div class="marquee-track">
+            {% for item in row1 %}<span>{{ item }}</span>{% endfor %}
+            {% for item in row1 %}<span>{{ item }}</span>{% endfor %}
+          </div>
+          <div class="marquee-track marquee-track--reverse">
+            {% for item in row2 %}<span>{{ item }}</span>{% endfor %}
+            {% for item in row2 %}<span>{{ item }}</span>{% endfor %}
+          </div>
+        </div>
+      </section>

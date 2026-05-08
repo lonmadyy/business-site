@@ -1,0 +1,32 @@
+{% set kicker = pricingKicker or '[ 04 ]' %}
+{% set heading = pricingHeading or 'Цены без сюрпризов' %}
+{% set note = pricingNote %}
+{% set primaryHref = pricingPrimaryHref or site.telegram %}
+      <section class="pricing section-reveal" id="pricing">
+        <div class="container">
+          <div class="section-heading section-heading--row pricing__heading">
+            <div>
+              <p class="mono-label">{{ kicker }}</p>
+              <h2>{{ heading }}</h2>
+            </div>
+            {% if note %}
+            <p class="pricing__note">{{ note }}</p>
+            {% endif %}
+          </div>
+
+          <div class="pricing__grid">
+            {% for plan in pricingPlans %}
+            <article class="price-card{% if loop.index == 2 %} price-card--featured{% endif %}">
+              <p class="mono-label price-card__kicker">{{ plan.badge }}</p>
+              <h3>{{ plan.title }}</h3>
+              <p class="price">{{ plan.price }}</p>
+              <p>{{ plan.description }}</p>
+              <ul class="price-card__includes">
+                {% for line in plan.includes %}<li>{{ line }}</li>{% endfor %}
+              </ul>
+              <a class="btn {% if loop.index == 2 %}btn--primary{% else %}btn--ghost{% endif %}" href="{{ primaryHref }}">{% if loop.index == 2 %}Обсудить{% else %}Узнать{% endif %}</a>
+            </article>
+            {% endfor %}
+          </div>
+        </div>
+      </section>

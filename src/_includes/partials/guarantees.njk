@@ -1,0 +1,13 @@
+{% set items = guarantees or [
+  { glyph: '≡', title: 'Договор', body: 'Фиксируем всё до старта: этапы, суммы, сроки.' },
+  { glyph: '◎', title: 'Гарантия', body: '2 месяца на исправление дефектов нашей реализации.' },
+  { glyph: '→', title: 'Сроки', body: 'Простые проекты — 1 неделя. Сложные — от 3 недель.' },
+  { glyph: '✓', title: 'Официально', body: 'НПД, УНП, договор, оплата по карте РБ.' }
+] %}
+      <section class="guarantees section-reveal">
+        <div class="container guarantees__grid">
+          {% for item in items %}
+          <article><span>{{ item.glyph }}</span><h3>{{ item.title }}</h3><p>{{ item.body }}</p></article>
+          {% endfor %}
+        </div>
+      </section>

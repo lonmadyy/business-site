@@ -1,0 +1,53 @@
+{% set heroPrimaryHref = hero.primaryCta.href if hero.primaryCta and hero.primaryCta.href else site.telegram %}
+{% set heroPrimaryText = hero.primaryCta.text if hero.primaryCta and hero.primaryCta.text else 'Обсудить проект' %}
+{% set heroSecondaryHref = hero.secondaryCta.href if hero.secondaryCta and hero.secondaryCta.href else '#pricing' %}
+{% set heroSecondaryText = hero.secondaryCta.text if hero.secondaryCta and hero.secondaryCta.text else 'Смотреть цены' %}
+      <section class="hero section-reveal">
+        <div class="hero__grid page-grid">
+          <div class="hero__terminal" data-cursor="case">
+            <div class="hero__terminal-chrome" aria-hidden="true">
+              <div class="hero__traffic">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <p>{{ hero.terminalPath or 'botfactory://launch' }}</p>
+              <strong>{{ hero.terminalBrand or 'BF' }}</strong>
+            </div>
+
+            <div class="hero__terminal-body">
+              <div class="hero__copy">
+                <p class="mono-label">{{ hero.monoLabel or '[ Минск · Беларусь · 2026 ]' }}</p>
+                <p class="hero__prompt"><span>{{ hero.promptUser or 'bf@studio' }}</span><span>{{ hero.promptDir or '~/digital-products' }}</span><span>{{ hero.promptCommand or '$ run growth-system' }}</span></p>
+                <h1>
+                  {% for line in hero.h1Lines %}<span>{{ line }}</span>
+                  {% endfor %}<span class="accent-line" data-morph{% if hero.morphPhrases %} data-morph-phrases='{{ hero.morphPhrases | dump | safe }}'{% endif %}>{{ hero.morphPhrases[0] }}</span>
+                </h1>
+              </div>
+
+              <div class="hero__side">
+                <p>{{ hero.sideBlurb }}</p>
+                <div class="hero__actions">
+                  <a class="btn btn--primary" href="{{ heroPrimaryHref }}">{{ heroPrimaryText }}</a>
+                  <a class="btn btn--ghost" href="{{ heroSecondaryHref }}">{{ heroSecondaryText }}</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="hero__pixel-field" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </section>

@@ -65,56 +65,18 @@ canonicalPath: /
 {% endblock %}
 {% block body %}
     <main id="top">
-      <section class="hero section-reveal">
-        <div class="hero__grid page-grid">
-          <div class="hero__terminal" data-cursor="case">
-            <div class="hero__terminal-chrome" aria-hidden="true">
-              <div class="hero__traffic">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <p>botfactory://launch</p>
-              <strong>BF</strong>
-            </div>
-
-            <div class="hero__terminal-body">
-              <div class="hero__copy">
-                <p class="mono-label">[ Минск · Беларусь · 2026 ]</p>
-                <p class="hero__prompt"><span>bf@studio</span><span>~/digital-products</span><span>$ run growth-system</span></p>
-                <h1>
-                  <span>Делаем цифровые</span>
-                  <span>продукты которые</span>
-                  <span class="accent-line" data-morph>приносят клиентов</span>
-                </h1>
-              </div>
-
-              <div class="hero__side">
-                <p>Сайты. Telegram-боты. AI-интеграции. Под ключ для бизнеса в Беларуси.</p>
-                <div class="hero__actions">
-                  <a class="btn btn--primary" href="https://t.me/botfactoryby">Обсудить проект</a>
-                  <a class="btn btn--ghost" href="#pricing">Смотреть цены</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="hero__pixel-field" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-        </div>
-      </section>
+{% set hero = {
+  terminalPath: 'botfactory://launch',
+  monoLabel: '[ Минск · Беларусь · 2026 ]',
+  promptUser: 'bf@studio',
+  promptDir: '~/digital-products',
+  promptCommand: '$ run growth-system',
+  h1Lines: ['Делаем цифровые', 'продукты которые'],
+  morphPhrases: ['приносят клиентов', 'работают 24/7', 'продают'],
+  sideBlurb: 'Сайты. Telegram-боты. AI-интеграции. Под ключ для бизнеса в Беларуси.',
+  secondaryCta: { text: 'Смотреть цены', href: '#pricing' }
+} %}
+{% include "partials/hero-terminal.njk" %}
 
       <section class="proof section-reveal">
         <div class="container proof__grid">
@@ -204,59 +166,9 @@ canonicalPath: /
         </div>
       </section>
 
-      <section class="integrations section-reveal">
-        <div class="container">
-          <p class="mono-label">[ 02 ]</p>
-          <h2>Интегрируем с любой системой</h2>
-        </div>
-        <div class="integration-marquee">
-          <div class="marquee-track">
-            <span>amoCRM</span><span>Bitrix24</span><span>1С</span><span>Yclients</span><span>Planfix</span><span>МойСклад</span><span>OpenCart</span>
-            <span>amoCRM</span><span>Bitrix24</span><span>1С</span><span>Yclients</span><span>Planfix</span><span>МойСклад</span><span>OpenCart</span>
-          </div>
-          <div class="marquee-track marquee-track--reverse">
-            <span>OpenAI</span><span>Stripe</span><span>ERIP</span><span>Telegram API</span><span>REST API</span><span>Google Sheets</span><span>Webhooks</span>
-            <span>OpenAI</span><span>Stripe</span><span>ERIP</span><span>Telegram API</span><span>REST API</span><span>Google Sheets</span><span>Webhooks</span>
-          </div>
-        </div>
-      </section>
+{% include "partials/integrations.njk" %}
 
-      <section class="process section-reveal" id="process">
-        <div class="container">
-          <div class="section-heading">
-            <p class="mono-label">[ 03 ]</p>
-            <h2>Как мы работаем</h2>
-          </div>
-          <div class="timeline">
-            <div class="timeline__line"></div>
-            <article>
-              <span>[ 01 ]</span>
-              <h3>Бриф</h3>
-              <p>Бесплатная консультация, фиксируем задачу и ограничения.</p>
-            </article>
-            <article>
-              <span>[ 02 ]</span>
-              <h3>Концепт</h3>
-              <p>Показываем, как будет выглядеть решение до оплаты.</p>
-            </article>
-            <article>
-              <span>[ 03 ]</span>
-              <h3>Разработка</h3>
-              <p>Пишем код, тестируем, итерируем по понятному плану.</p>
-            </article>
-            <article>
-              <span>[ 04 ]</span>
-              <h3>Запуск</h3>
-              <p>Деплой, SEO-база, аналитика и финальные проверки.</p>
-            </article>
-            <article>
-              <span>[ 05 ]</span>
-              <h3>Поддержка</h3>
-              <p>2 месяца гарантии, мониторинг и быстрые исправления.</p>
-            </article>
-          </div>
-        </div>
-      </section>
+{% include "partials/timeline.njk" %}
 
       <section class="pricing section-reveal" id="pricing">
         <div class="container">
@@ -351,68 +263,20 @@ canonicalPath: /
         </div>
       </section>
 
-      <section class="guarantees section-reveal">
-        <div class="container guarantees__grid">
-          <article><span>≡</span><h3>Договор</h3><p>Фиксируем всё до старта: этапы, суммы, сроки.</p></article>
-          <article><span>◎</span><h3>Гарантия</h3><p>2 месяца на исправление дефектов нашей реализации.</p></article>
-          <article><span>→</span><h3>Сроки</h3><p>Простые проекты — 1 неделя. Сложные — от 3 недель.</p></article>
-          <article><span>✓</span><h3>Официально</h3><p>НПД, УНП, договор, оплата по карте РБ.</p></article>
-        </div>
-      </section>
+{% include "partials/guarantees.njk" %}
 
-      <section class="final-cta section-reveal" id="contact">
-        <div class="container final-cta__inner">
-          <h2>Готовы обсудить<br />ваш проект?</h2>
-          <p>Напишите — ответим в течение часа и предложим решение под вашу задачу.</p>
-          <div class="final-cta__actions">
-            <a class="btn btn--primary" href="https://t.me/botfactoryby">Написать в Telegram</a>
-            <a class="btn btn--ghost" href="mailto:botfactoryby@gmail.com">botfactoryby@gmail.com</a>
-          </div>
-          <a class="phone" href="tel:+375445414868">+375 44 541 48 68</a>
-        </div>
-      </section>
+{% include "partials/final-cta.njk" %}
 
-      <section class="faq section-reveal">
-        <div class="container">
-          <div class="section-heading">
-            <p class="mono-label">[ FAQ ]</p>
-            <h2>Ответы на вопросы</h2>
-          </div>
-          <div class="faq__grid">
-            <details open>
-              <summary>Сколько стоит разработка?</summary>
-              <p>Простой старт — от 690 BYN. Точная стоимость зависит от логики, интеграций и сроков.</p>
-            </details>
-            <details>
-              <summary>Сколько времени занимает проект?</summary>
-              <p>Лендинг или простой бот — около недели. Комплексные решения обычно занимают от 3 недель.</p>
-            </details>
-            <details>
-              <summary>Работаете ли вы по договору?</summary>
-              <p>Да. Фиксируем этапы, сроки, сумму и гарантийные обязательства до старта.</p>
-            </details>
-            <details>
-              <summary>Что если результат не понравится?</summary>
-              <p>Сначала показываем концепт. Вы видите направление до оплаты и снижаете риск ошибки.</p>
-            </details>
-            <details>
-              <summary>Можете интегрировать с нашей CRM?</summary>
-              <p>Да. Работаем с amoCRM, Bitrix24, 1С, Google Sheets, REST API и webhooks.</p>
-            </details>
-            <details>
-              <summary>Разрабатываете сайты с нуля?</summary>
-              <p>Да. Делаем кастомную разработку, когда шаблон или конструктор ограничивает задачу.</p>
-            </details>
-            <details>
-              <summary>Работаете ли с клиентами не из Минска?</summary>
-              <p>Да. Работаем удалённо по Беларуси и за её пределами, если проект можно вести онлайн.</p>
-            </details>
-            <details>
-              <summary>Как происходит оплата?</summary>
-              <p>Принимаем оплату по карте РБ или на расчётный счёт ИП. Делим стоимость на этапы — без полной предоплаты.</p>
-            </details>
-          </div>
-        </div>
-      </section>
+{% set faq = [
+  { q: 'Сколько стоит разработка?', a: 'Простой старт — от 690 BYN. Точная стоимость зависит от логики, интеграций и сроков.' },
+  { q: 'Сколько времени занимает проект?', a: 'Лендинг или простой бот — около недели. Комплексные решения обычно занимают от 3 недель.' },
+  { q: 'Работаете ли вы по договору?', a: 'Да. Фиксируем этапы, сроки, сумму и гарантийные обязательства до старта.' },
+  { q: 'Что если результат не понравится?', a: 'Сначала показываем концепт. Вы видите направление до оплаты и снижаете риск ошибки.' },
+  { q: 'Можете интегрировать с нашей CRM?', a: 'Да. Работаем с amoCRM, Bitrix24, 1С, Google Sheets, REST API и webhooks.' },
+  { q: 'Разрабатываете сайты с нуля?', a: 'Да. Делаем кастомную разработку, когда шаблон или конструктор ограничивает задачу.' },
+  { q: 'Работаете ли с клиентами не из Минска?', a: 'Да. Работаем удалённо по Беларуси и за её пределами, если проект можно вести онлайн.' },
+  { q: 'Как происходит оплата?', a: 'Принимаем оплату по карте РБ или на расчётный счёт ИП. Делим стоимость на этапы — без полной предоплаты.' }
+] %}
+{% include "partials/faq.njk" %}
     </main>
 {% endblock %}

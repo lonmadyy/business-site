@@ -1,0 +1,13 @@
+{% set heading = finalCta.heading if finalCta and finalCta.heading else 'Готовы обсудить<br />ваш проект?' %}
+{% set body = finalCta.body if finalCta and finalCta.body else 'Напишите — ответим в течение часа и предложим решение под вашу задачу.' %}
+      <section class="final-cta section-reveal" id="contact">
+        <div class="container final-cta__inner">
+          <h2>{{ heading | safe }}</h2>
+          <p>{{ body }}</p>
+          <div class="final-cta__actions">
+            <a class="btn btn--primary" href="{{ site.telegram }}">Написать в Telegram</a>
+            <a class="btn btn--ghost" href="mailto:{{ site.email }}">{{ site.email }}</a>
+          </div>
+          <a class="phone" href="tel:{{ site.phoneRaw }}">{{ site.phoneDisplay }}</a>
+        </div>
+      </section>

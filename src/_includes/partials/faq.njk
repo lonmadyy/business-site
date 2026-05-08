@@ -1,0 +1,19 @@
+{% set items = faq %}
+{% set kicker = faqKicker or '[ FAQ ]' %}
+{% set heading = faqHeading or 'Ответы на вопросы' %}
+      <section class="faq section-reveal">
+        <div class="container">
+          <div class="section-heading">
+            <p class="mono-label">{{ kicker }}</p>
+            <h2>{{ heading }}</h2>
+          </div>
+          <div class="faq__grid">
+            {% for item in items %}
+            <details{% if loop.first %} open{% endif %}>
+              <summary>{{ item.q }}</summary>
+              <p>{{ item.a }}</p>
+            </details>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
