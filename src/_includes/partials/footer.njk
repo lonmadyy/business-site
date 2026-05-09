@@ -10,7 +10,7 @@
         <div>
           <h3>Услуги</h3>
           {% for slug, s in services %}
-          <a href="{{ s.permalink }}">{{ s.navName }}</a>
+          <a href="{{ s.permalink }}"{% if page.url == s.permalink %} aria-current="page"{% endif %}>{{ s.navName }}</a>
           {% endfor %}
         </div>
         <div>

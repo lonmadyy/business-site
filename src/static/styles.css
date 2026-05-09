@@ -1047,6 +1047,10 @@ img {
   background: rgba(200, 240, 76, 0.08);
 }
 
+.site-footer [aria-current="page"] {
+  color: var(--accent);
+}
+
 .section-heading {
   margin-bottom: 58px;
 }
