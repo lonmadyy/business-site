@@ -1,7 +1,68 @@
 {% extends "layouts/base.njk" %}
 {% set svc = services[serviceId] %}
 
-{% block json_ld %}{# Service / BreadcrumbList / FAQPage добавляются в Phase 5.2 #}{% endblock %}
+{% block json_ld %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Service",
+          "name": {{ svc.breadcrumbName | dump | safe }},
+          "serviceType": {{ svc.serviceType | dump | safe }},
+          "description": {{ svc.pageDescription | dump | safe }},
+          "url": "{{ site.domain }}{{ svc.permalink }}",
+          "provider": {
+            "@type": "ProfessionalService",
+            "name": {{ site.brand | dump | safe }},
+            "url": "{{ site.domain }}/"
+          },
+          "areaServed": [
+            {"@type": "Country", "name": "Belarus"},
+            {"@type": "City", "name": "Minsk"}
+          ],
+          "offers": [
+{%- for plan in svc.pricing.plans %}
+{%- set priceNumeric = plan.price | replace('от ', '') | replace(' ', '') | replace('BYN', '') %}
+            {
+              "@type": "Offer",
+              "name": {{ plan.title | dump | safe }},
+              "description": {{ plan.description | dump | safe }},
+              "priceSpecification": {
+                "@type": "PriceSpecification",
+                "price": {{ priceNumeric }},
+                "priceCurrency": "BYN"
+              }
+            }{% if not loop.last %},{% endif %}
+{%- endfor %}
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Главная", "item": "{{ site.domain }}/"},
+            {"@type": "ListItem", "position": 2, "name": {{ svc.breadcrumbName | dump | safe }}, "item": "{{ site.domain }}{{ svc.permalink }}"}
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+{%- for item in svc.faq %}
+            {
+              "@type": "Question",
+              "name": {{ item.q | dump | safe }},
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": {{ item.a | dump | safe }}
+              }
+            }{% if not loop.last %},{% endif %}
+{%- endfor %}
+          ]
+        }
+      ]
+    }
+    </script>
+{% endblock %}
 
 {% block body %}
     <main id="top">
