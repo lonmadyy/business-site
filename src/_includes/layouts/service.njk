@@ -1,0 +1,59 @@
+{% extends "layouts/base.njk" %}
+{% set svc = services[serviceId] %}
+
+{% block json_ld %}{# Service / BreadcrumbList / FAQPage добавляются в Phase 5.2 #}{% endblock %}
+
+{% block body %}
+    <main id="top">
+{% set hero = svc.hero %}
+{% include "partials/hero-terminal.njk" %}
+
+      <section class="proof section-reveal">
+        <div class="container">
+          <div class="section-heading">
+            <p class="mono-label">{{ svc.usp.kicker }}</p>
+            <h2>{{ svc.usp.heading }}</h2>
+          </div>
+          <div class="proof__grid">
+            {% for card in svc.usp.cards %}
+            <article class="proof-card" data-cursor="card">
+              <span class="corner-mark"></span>
+              <h2>{{ card.title }}</h2>
+              <p class="proof-card__meta">{{ card.meta }}</p>
+              <p>{{ card.body }}</p>
+            </article>
+            {% endfor %}
+          </div>
+
+          <div class="usp__tech">
+            <p class="mono-label">{{ svc.tech.kicker }} {{ svc.tech.heading }}</p>
+            <div class="tag-row">
+              {% for item in svc.tech.items %}<span>{{ item }}</span>{% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>
+
+{% set pricingKicker = svc.pricing.kicker %}
+{% set pricingHeading = svc.pricing.heading %}
+{% set pricingNote = svc.pricing.note %}
+{% set pricingPlans = svc.pricing.plans %}
+{% include "partials/pricing-cards.njk" %}
+
+{% include "partials/timeline.njk" %}
+
+{% set integrationsKicker = svc.integrations.kicker %}
+{% set integrationsHeading = svc.integrations.heading %}
+{% set integrationsRow1 = svc.integrations.row1 %}
+{% set integrationsRow2 = svc.integrations.row2 %}
+{% include "partials/integrations.njk" %}
+
+{% include "partials/guarantees.njk" %}
+
+{% set finalCta = svc.finalCta %}
+{% include "partials/final-cta.njk" %}
+
+{% set faq = svc.faq %}
+{% include "partials/faq.njk" %}
+    </main>
+{% endblock %}

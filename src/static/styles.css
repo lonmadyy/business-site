@@ -1019,6 +1019,16 @@ img {
   line-height: 1.6;
 }
 
+.usp__tech {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+
+.usp__tech .mono-label {
+  margin-bottom: 16px;
+}
+
 .section-heading {
   margin-bottom: 58px;
 }
