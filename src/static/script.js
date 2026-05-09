@@ -245,27 +245,39 @@ mobileMenu.querySelectorAll("a").forEach((link) => {
   });
 });
 
-const phrases = ["приносят клиентов", "работают 24/7", "продают"];
+const defaultPhrases = ["приносят клиентов", "работают 24/7", "продают"];
+const phrases = (() => {
+  const raw = morphTarget?.dataset?.morphPhrases;
+  if (!raw) return defaultPhrases;
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) && parsed.length ? parsed : defaultPhrases;
+  } catch (e) {
+    return defaultPhrases;
+  }
+})();
 let phraseIndex = 0;
-window.setInterval(() => {
-  phraseIndex = (phraseIndex + 1) % phrases.length;
-  morphTarget.animate(
-    [
-      { opacity: 1, filter: "blur(0)", transform: "translateY(0)" },
-      { opacity: 0, filter: "blur(4px)", transform: "translateY(8px)" },
-    ],
-    { duration: 240, easing: "ease-in", fill: "forwards" }
-  ).onfinish = () => {
-    morphTarget.textContent = phrases[phraseIndex];
+if (morphTarget) {
+  window.setInterval(() => {
+    phraseIndex = (phraseIndex + 1) % phrases.length;
     morphTarget.animate(
       [
-        { opacity: 0, filter: "blur(4px)", transform: "translateY(-8px)" },
         { opacity: 1, filter: "blur(0)", transform: "translateY(0)" },
+        { opacity: 0, filter: "blur(4px)", transform: "translateY(8px)" },
       ],
-      { duration: 420, easing: "cubic-bezier(.19,1,.22,1)", fill: "forwards" }
-    );
-  };
-}, 2600);
+      { duration: 240, easing: "ease-in", fill: "forwards" }
+    ).onfinish = () => {
+      morphTarget.textContent = phrases[phraseIndex];
+      morphTarget.animate(
+        [
+          { opacity: 0, filter: "blur(4px)", transform: "translateY(-8px)" },
+          { opacity: 1, filter: "blur(0)", transform: "translateY(0)" },
+        ],
+        { duration: 420, easing: "cubic-bezier(.19,1,.22,1)", fill: "forwards" }
+      );
+    };
+  }, 2600);
+}
 
 const revealObserver = new IntersectionObserver(
   (entries) => {

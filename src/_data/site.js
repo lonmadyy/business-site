@@ -8,6 +8,6 @@ module.exports = {
   locale: "ru_BY",
   themeColor: "#0a0b0a",
   cssVersion: "20260508-svc-1",
-  jsVersion: "20260505-mobile-a11y-menu",
+  jsVersion: "20260508-svc-1",
   defaultOgImage: "/assets/og-image.png",
 };
