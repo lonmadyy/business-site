@@ -1,4 +1,5 @@
 module.exports = {
+  buildDate: new Date().toISOString().slice(0, 10),
   brand: "Bot Factory",
   email: "botfactoryby@gmail.com",
   phoneRaw: "+375445414868",
