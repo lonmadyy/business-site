@@ -26,21 +26,25 @@ const serviceContent = [
     title: "Сайты, которые продают без лишнего шума",
     body: "Лендинги, корпоративные сайты и продуктовые страницы с быстрым запуском, SEO-базой и аккуратной аналитикой.",
     tags: ["Next.js", "React", "SEO"],
+    href: "/sites/",
   },
   {
     title: "Боты, которые берут рутину на себя",
     body: "Telegram-боты для заявок, оплат, уведомлений, личных кабинетов и внутренних процессов без лишнего интерфейса.",
     tags: ["Python", "aiogram", "Payments"],
+    href: "/telegram-bots/",
   },
   {
     title: "Mini Apps внутри Telegram",
     body: "Лёгкие приложения с привычным UX, каталогами, бронированиями, кабинетами и подключением к вашей системе.",
     tags: ["TWA", "WebGL", "API"],
+    href: "/mini-apps/",
   },
   {
     title: "AI-интеграции под бизнес-задачу",
     body: "RAG-поиск, ассистенты, обработка обращений, генерация документов и связка с CRM или базой знаний.",
     tags: ["GPT", "LLM", "RAG"],
+    href: "/ai/",
   },
 ];
 
@@ -317,7 +321,12 @@ function renderService(index) {
     tags.append(tagNode);
   });
 
-  servicePreview.replaceChildren(label, title, body, tags);
+  const more = document.createElement("a");
+  more.className = "service-preview__more";
+  more.href = item.href;
+  more.textContent = "Подробнее →";
+
+  servicePreview.replaceChildren(label, title, body, tags, more);
 }
 
 serviceRows.forEach((row) => {

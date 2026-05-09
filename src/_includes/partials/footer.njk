@@ -9,10 +9,9 @@
         </div>
         <div>
           <h3>Услуги</h3>
-          <a href="{{ anchorBase }}#services">Сайты</a>
-          <a href="{{ anchorBase }}#services">Telegram-боты</a>
-          <a href="{{ anchorBase }}#services">Mini Apps</a>
-          <a href="{{ anchorBase }}#services">AI-интеграции</a>
+          {% for slug, s in services %}
+          <a href="{{ s.permalink }}">{{ s.navName }}</a>
+          {% endfor %}
         </div>
         <div>
           <h3>Соцсети</h3>
