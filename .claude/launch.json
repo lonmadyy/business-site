@@ -2,15 +2,15 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "static",
-      "runtimeExecutable": "npx",
-      "runtimeArgs": ["http-server", "_site", "-p", "8765", "-c-1", "--silent"],
+      "name": "eleventy-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
       "port": 8765
     },
     {
-      "name": "eleventy",
+      "name": "static-preview",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["@11ty/eleventy", "--serve", "--port=8765"],
+      "runtimeArgs": ["http-server", "_site", "-p", "8765", "-c-1", "--silent"],
       "port": 8765
     }
   ]
