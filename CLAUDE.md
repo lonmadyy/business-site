@@ -1,6 +1,48 @@
-# CLAUDE.md — правила работы над проектом
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 > **Перед любой правкой кода — прочитай этот файл и применяй его правила. Если правила противоречат пользовательскому запросу — спроси, не действуй молча.**
+
+## Команды
+
+```bash
+npm install          # один раз
+npm run dev          # eleventy --serve --port=8765, live-reload, watch
+npm run build        # сборка в _site/
+npm run clean        # rm -rf _site/
+```
+
+Тестов нет — проверка ручная в браузере (см. раздел «Проверка работоспособности»).
+
+## Карта архитектуры
+
+Где что лежит — нужно знать перед правкой:
+
+| Задача | Файл |
+|---|---|
+| Контент 4 страниц услуг (копи, тарифы, FAQ, hero-фразы) | `src/_data/services.js` — **единственный источник правды** |
+| Бренд, контакты, домен, версии CSS/JS | `src/_data/site.js` |
+| Скелет HTML (head/header/footer) | `src/_includes/layouts/base.njk` |
+| Рендер страницы услуги из `services[serviceId]` | `src/_includes/layouts/service.njk` |
+| Главная (FAQ + morph-фразы — хардкод, **не** из `services.js`) | `src/index.njk` |
+| Партиалы (hero-terminal, pricing-cards, timeline, integrations, guarantees, final-cta, faq) | `src/_includes/partials/` |
+| JSON-LD (ProfessionalService / Service / FAQPage / BreadcrumbList) | `src/_includes/partials/head-meta.njk` |
+| Sitemap | `src/sitemap.njk` (генерится из `collections.all`) |
+| Стили / JS | `src/static/styles.css`, `src/static/script.js` |
+| Конфиг Eleventy | `.eleventy.js` |
+
+Цепочка для страницы услуги: `src/<slug>.njk` (frontmatter с `serviceId`) → `layouts/service.njk` → `layouts/base.njk`.
+Главная идёт в обход — `src/index.njk` напрямую `extends base.njk`.
+
+## Подводные камни (coupling)
+
+- **Порт 8765 продублирован** в `package.json` (`--port=8765`) и `.eleventy.js` (`setServerOptions`). Меняй в обоих местах.
+- **Кеш-бастинг.** Правки в `static/styles.css` или `static/script.js` → инкрементировать `cssVersion` / `jsVersion` в `src/_data/site.js`. Иначе у части пользователей останется старая версия.
+- **Домен — заглушка.** `https://example.com` в `_data/site.js → domain` пробрасывается во все canonical / OG / sitemap / JSON-LD. Менять в одном месте.
+- **Defensive null-checks в `script.js`.** Pricing tabs и service preview существуют **только** на главной. Инициализаторы безопасно проходят по пустым `NodeList` на страницах услуг — **не убирай эти чеки**, иначе JS упадёт на `/sites/`, `/telegram-bots/` и т.п.
+- **`prefers-reduced-motion`.** Lenis и плавный скролл отключаются, прелоадер ускоряется. Любая новая анимация должна это уважать.
+- **Активная услуга в footer** помечена `aria-current="page"` (лаймовый цвет). Это не CSS-хак — атрибут проставляется в `partials/footer.njk` по `page.url`.
 
 ## 1. Перед тем как писать код
 
@@ -64,3 +106,31 @@
 ## 9. Когда не уверен
 
 Спроси пользователя. Стоимость уточнения низкая, стоимость неправильной правки — высокая.
+
+## 10. Ведение MEMORY.md
+
+[MEMORY.md](MEMORY.md) — журнал инженерных решений и подводных камней по проекту между сессиями. Цель: будущий Claude (и человек) не наступает на одни и те же грабли.
+
+**Что писать:**
+
+- **Решения с обоснованием:** что выбрали и **почему**, какие альтернативы отбросили.
+- **Подводные камни в окружении / тулинге:** несовместимости версий, особенности Windows-путей, конфликты портов, поведение npx/npm.
+- **Гипотезы и их проверка:** что проверили в браузере / на устройстве, что подтвердилось, что нет.
+
+**Что НЕ писать:**
+
+- Состояние задачи «в процессе» — это в чате, не в MEMORY.
+- Дублирование README.md / CLAUDE.md.
+- Личные TODO без срока (для TODO есть секция «Deferred / TODO» в README).
+
+**Когда обновлять:**
+
+- Сразу после решения, неочевидного из кода или README.
+- Сразу после открытия подводного камня (особенно тулинг и окружение).
+- В той же сессии, что и сама правка. Откладывание = забывание.
+
+**Формат:**
+
+- Обратный хронологический порядок: новое — сверху.
+- Каждая запись: `## YYYY-MM-DD — короткий заголовок`, ниже 1–5 строк сути.
+- Без воды и формализма. Пиши так, чтобы через полгода ты сам понял, что имел в виду.
