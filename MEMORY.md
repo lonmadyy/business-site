@@ -4,6 +4,35 @@
 
 ---
 
+## 2026-05-24 — Аналитика: Yandex.Metrika 109388514, GA4 G-ZQZMG72QGD
+
+Поставили оба счётчика, оба активны на всех страницах через `partials/analytics.njk`. Yandex включён с webvisor + clickmap + ecommerce(dataLayer) + accurateTrackBounce + trackLinks. GA4 — с `anonymize_ip: true`. IDs хранятся в `_data/site.js → site.analytics`.
+
+**Custom event tracking** (один delegated click listener, шлёт в обе системы):
+
+| Событие (event/goal name) | Триггер |
+|---|---|
+| `telegram_click` | клик на любой `a[href^="https://t.me/"]` |
+| `email_click` | клик на любой `a[href^="mailto:"]` |
+| `phone_click` | клик на любой `a[href^="tel:"]` |
+| `cta_contacts_click` | клик на header-cta или primary CTA в hero, ведущий на `/contacts/`. Параметр `location: header\|hero` |
+| `service_click` | клик на `.service-row` (главная). Параметр `service: <название>` |
+
+**Цели в Yandex.Metrika** (привязаны к событиям выше):
+
+| # | Название | ID | Тип |
+|---|---|---|---|
+| 1 | Визит страницы /contacts/ | 562207954 | URL содержит |
+| 2 | Click — Telegram | 562208008 | JS-событие `telegram_click` |
+| 3 | Click — Email | 562208015 | JS-событие `email_click` |
+| 4 | Click — Phone | 562208064 | JS-событие `phone_click` |
+| 5 | Click — CTA «Связаться» | 562208098 | JS-событие `cta_contacts_click` |
+| 6 | Click — Строка услуги | 562208131 | JS-событие `service_click` |
+
+**TODO для GA4:** конверсии (Key Events) в GA4 размечаются **после** того, как событие хоть раз произошло — события появляются в `Admin → Events` через 24-48 ч. После публикации сайта и первых кликов нужно зайти в GA4 и пометить `telegram_click`, `email_click`, `phone_click`, `cta_contacts_click` как Key Events.
+
+**TODO для исключения собственного трафика:** в Y.Metrika `Настройки → Фильтры` добавить свой IP, в GA4 `Admin → Data filters` тоже. Иначе свои визиты будут засорять данные. Нужен фиксированный IP — обычно домашний/офисный + динамический по cookie через UTM.
+
 ## 2026-05-24 — Сменили Telegram-username, основной CTA теперь ведёт на /contacts/
 
 - Telegram-username: `botfactoryby` → `minsksite` (везде, кроме email-адреса — он остаётся `botfactoryby@gmail.com`). Источник правды — `_data/site.js → telegram`; всё ещё есть 4 хардкодных URL в Final CTA блоке `index.njk` (там пришлось правил руками).
