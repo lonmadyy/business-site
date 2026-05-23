@@ -7,7 +7,7 @@ module.exports = {
   domain: "https://example.com",
   locale: "ru_BY",
   themeColor: "#0a0b0a",
-  cssVersion: "20260508-svc-3",
+  cssVersion: "20260514-svc-4",
   jsVersion: "20260508-svc-2",
   defaultOgImage: "/assets/og-image.png",
 };

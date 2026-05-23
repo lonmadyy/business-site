@@ -1752,8 +1752,7 @@ img {
   }
 
   .service-preview {
-    position: static;
-    min-height: 320px;
+    display: none;
   }
 
   .offer {
