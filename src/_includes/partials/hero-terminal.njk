@@ -1,5 +1,5 @@
-{% set heroPrimaryHref = hero.primaryCta.href if hero.primaryCta and hero.primaryCta.href else site.telegram %}
-{% set heroPrimaryText = hero.primaryCta.text if hero.primaryCta and hero.primaryCta.text else 'Обсудить проект' %}
+{% set heroPrimaryHref = hero.primaryCta.href if hero.primaryCta and hero.primaryCta.href else '/contacts/' %}
+{% set heroPrimaryText = hero.primaryCta.text if hero.primaryCta and hero.primaryCta.text else 'Связаться с нами' %}
 {% set heroSecondaryHref = hero.secondaryCta.href if hero.secondaryCta and hero.secondaryCta.href else '#pricing' %}
 {% set heroSecondaryText = hero.secondaryCta.text if hero.secondaryCta and hero.secondaryCta.text else 'Смотреть цены' %}
       <section class="hero section-reveal">

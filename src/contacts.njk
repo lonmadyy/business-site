@@ -1,0 +1,45 @@
+---
+permalink: /contacts/index.html
+title: Связаться с нами
+description: "Telegram, email и телефон. Ответим в течение часа и предложим решение под вашу задачу."
+ogTitle: Связаться с нами
+ogDescription: Telegram, email и телефон. Ответим в течение часа.
+canonicalPath: /contacts/
+---
+{% extends "layouts/base.njk" %}
+{% block body %}
+    <main id="top">
+      <section class="contacts-page section-reveal">
+        <div class="container">
+          <header class="contacts-page__header">
+            <p class="mono-label">[ контакты ]</p>
+            <h1>Связаться с нами</h1>
+            <p class="contacts-page__lead">Напишите или позвоните — ответим в течение часа и предложим решение под задачу.</p>
+          </header>
+
+          <div class="contacts-grid">
+            <a class="contact-card" href="{{ site.telegram }}">
+              <p class="mono-label">[ telegram ]</p>
+              <h2>@minsksite</h2>
+              <p>Самый быстрый канал — обычно отвечаем в первые минуты.</p>
+            </a>
+            <a class="contact-card" href="mailto:{{ site.email }}">
+              <p class="mono-label">[ email ]</p>
+              <h2>{{ site.email }}</h2>
+              <p>Если удобнее текстом с вложениями и историей переписки.</p>
+            </a>
+            <a class="contact-card" href="tel:{{ site.phoneRaw }}">
+              <p class="mono-label">[ телефон ]</p>
+              <h2>{{ site.phoneDisplay }}</h2>
+              <p>Когда быстрее обсудить голосом.</p>
+            </a>
+            <div class="contact-card contact-card--static">
+              <p class="mono-label">[ контактное лицо ]</p>
+              <h2>Шевелёв Егор Владимирович</h2>
+              <p>НПД, УНП HE7170411. Договор и реквизиты — на этапе оформления.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+{% endblock %}
