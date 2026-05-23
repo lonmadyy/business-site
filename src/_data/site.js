@@ -3,7 +3,7 @@ module.exports = {
   email: "botfactoryby@gmail.com",
   phoneRaw: "+375445414868",
   phoneDisplay: "+375 44 541 48 68",
-  telegram: "https://t.me/botfactoryby",
+  telegram: "https://t.me/minsksite",
   domain: "https://business-site.by",
   locale: "ru_BY",
   themeColor: "#0a0b0a",

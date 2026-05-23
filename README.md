@@ -178,7 +178,7 @@ npm run clean      # удалить _site/
 
 ## Контакты студии
 
-- Telegram: <https://t.me/botfactoryby>
+- Telegram: <https://t.me/minsksite>
 - Email: <botfactoryby@gmail.com>
 - Телефон: +375 44 541 48 68
 - Реквизиты: НПД, УНП HE7170411, Шевелёв Е. В.
