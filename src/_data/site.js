@@ -4,7 +4,7 @@ module.exports = {
   phoneRaw: "+375445414868",
   phoneDisplay: "+375 44 541 48 68",
   telegram: "https://t.me/botfactoryby",
-  domain: "https://example.com",
+  domain: "https://business-site.by",
   locale: "ru_BY",
   themeColor: "#0a0b0a",
   cssVersion: "20260514-svc-4",

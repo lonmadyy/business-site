@@ -22,8 +22,8 @@
 
 ## Key pages
 
-- Home: https://example.com/
-- Services: https://example.com/#services
-- Pricing: https://example.com/#pricing
-- Process: https://example.com/#process
-- Contact: https://example.com/#contact
+- Home: https://business-site.by/
+- Services: https://business-site.by/#services
+- Pricing: https://business-site.by/#pricing
+- Process: https://business-site.by/#process
+- Contact: https://business-site.by/#contact
