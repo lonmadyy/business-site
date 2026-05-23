@@ -10,4 +10,8 @@ module.exports = {
   cssVersion: "20260524-contacts-1",
   jsVersion: "20260524-copy-1",
   defaultOgImage: "/assets/og-image.png",
+  analytics: {
+    ymCounter: 109388514,
+    ga4Id: "G-ZQZMG72QGD",
+  },
 };
