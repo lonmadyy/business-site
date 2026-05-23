@@ -39,7 +39,7 @@ npm run clean        # rm -rf _site/
 
 - **Порт 8765 продублирован** в `package.json` (`--port=8765`) и `.eleventy.js` (`setServerOptions`). Меняй в обоих местах.
 - **Кеш-бастинг.** Правки в `static/styles.css` или `static/script.js` → инкрементировать `cssVersion` / `jsVersion` в `src/_data/site.js`. Иначе у части пользователей останется старая версия.
-- **Домен — заглушка.** `https://example.com` в `_data/site.js → domain` пробрасывается во все canonical / OG / sitemap / JSON-LD. Менять в одном месте.
+- **Домен.** `https://business-site.by` в `_data/site.js → domain` пробрасывается во все canonical / OG / sitemap / JSON-LD. Менять в одном месте.
 - **Defensive null-checks в `script.js`.** Pricing tabs и service preview существуют **только** на главной. Инициализаторы безопасно проходят по пустым `NodeList` на страницах услуг — **не убирай эти чеки**, иначе JS упадёт на `/sites/`, `/telegram-bots/` и т.п.
 - **`prefers-reduced-motion`.** Lenis и плавный скролл отключаются, прелоадер ускоряется. Любая новая анимация должна это уважать.
 - **Активная услуга в footer** помечена `aria-current="page"` (лаймовый цвет). Это не CSS-хак — атрибут проставляется в `partials/footer.njk` по `page.url`.

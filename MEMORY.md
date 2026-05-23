@@ -4,6 +4,12 @@
 
 ---
 
+## 2026-05-23 — Выбран production-домен: business-site.by
+
+Заглушку `https://example.com` заменили на `https://business-site.by`. Изменилось одно поле `domain` в `src/_data/site.js` + хардкодные URL в `src/static/llms.txt` и `src/static/robots.txt` (там не шаблон). Всё canonical / OG / sitemap / JSON-LD автоматически подтянулось.
+
+**Замечание про SEO:** домен — exact-match (буквальный перевод «бизнес-сайт»). Google такие EMD без сильного контента иногда понижает. На старте не страшно; держать в уме при SEO-стратегии.
+
 ## 2026-05-14 — Запуск Eleventy dev-сервера из Claude Code на Windows с пробелом в пути
 
 Проект лежит в `C:\Users\Yegor\Documents\New project 3\…`. Пробел в `New project 3` ломает `runtimeExecutable` в `preview_start` (Claude Preview MCP) — путь обрезается по первому пробелу, и команда не находится.

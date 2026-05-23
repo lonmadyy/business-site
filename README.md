@@ -134,7 +134,7 @@ npm run clean      # удалить _site/
   - `/<service>/`: `@graph` с `Service` (3 `Offer` со ставками BYN), `BreadcrumbList` (Главная → услуга), `FAQPage` (вопросы услуги).
 - **`sitemap.xml`** генерируется из `collections.all` Eleventy. 5 URL: главная (priority 1.0) + 4 услуги (0.8). Lastmod = дата сборки.
 - **`robots.txt`** и **`llms.txt`** пробрасываются как passthrough из `src/static/`.
-- **TODO (см. Deferred):** все абсолютные URL ссылаются на `https://example.com/` — заглушка. После решения по реальному домену меняется в одном месте: `src/_data/site.js → domain`.
+- **Домен.** `https://business-site.by` хранится в `src/_data/site.js → domain` и проброшен во все canonical / OG / sitemap / JSON-LD. Менять в одном месте.
 
 ## Кеш-бастинг
 
@@ -168,7 +168,6 @@ npm run clean      # удалить _site/
 
 ## Deferred / TODO
 
-- **D1.** Заменить `https://example.com/` на реальный домен в [src/_data/site.js](src/_data/site.js) (`domain`). Это перепишет canonical / OG / sitemap / JSON-LD во всех страницах.
 - **D2.** Поставить Yandex.Metrica и/или GA4 (через partials/head-meta или отдельный partial). Зависит от решения по cookies / юр-вопросов.
 - **D3.** Verification-метатеги Google Search Console и Yandex.Webmaster.
 - **D4.** Реальные ссылки Instagram и LinkedIn в footer (сейчас `href="#"` — заглушки).
