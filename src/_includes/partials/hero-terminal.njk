@@ -11,14 +11,13 @@
                 <span></span>
                 <span></span>
               </div>
-              <p>{{ hero.terminalPath or 'botfactory://launch' }}</p>
-              <strong>{{ hero.terminalBrand or 'BF' }}</strong>
+              <p>{{ hero.terminalPath or './launch' }}</p>
             </div>
 
             <div class="hero__terminal-body">
               <div class="hero__copy">
                 <p class="mono-label">{{ hero.monoLabel or '[ Минск · Беларусь · 2026 ]' }}</p>
-                <p class="hero__prompt"><span>{{ hero.promptUser or 'bf@studio' }}</span><span>{{ hero.promptDir or '~/digital-products' }}</span><span>{{ hero.promptCommand or '$ run growth-system' }}</span></p>
+                <p class="hero__prompt"><span>{{ hero.promptUser or 'dev@studio' }}</span><span>{{ hero.promptDir or '~/digital-products' }}</span><span>{{ hero.promptCommand or '$ run growth-system' }}</span></p>
                 <h1>
                   {% for line in hero.h1Lines %}<span>{{ line }}</span>
                   {% endfor %}<span class="accent-line" data-morph{% if hero.morphPhrases %} data-morph-phrases='{{ hero.morphPhrases | dump | safe }}'{% endif %}>{{ hero.morphPhrases[0] }}</span>

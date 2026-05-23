@@ -1,9 +1,6 @@
 {% set anchorBase = '' if page.url == '/' else '/' %}
     <header class="site-header" data-header>
-      <a class="brand" href="{{ '#top' if page.url == '/' else '/' }}" aria-label="{{ site.brand }}">
-        <span class="brand__mark">BF</span>
-        <span class="brand__name">{{ site.brand }}</span>
-      </a>
+      <a class="brand" href="{{ '#top' if page.url == '/' else '/' }}" aria-label="На главную"></a>
 
       <nav class="desktop-nav" aria-label="Основная навигация">
         <a href="{{ anchorBase }}#services">Услуги</a>

@@ -1,12 +1,12 @@
 ---
 permalink: /index.html
-title: Bot Factory — сайты, Telegram-боты и AI-интеграции в Минске
-description: "Bot Factory делает сайты, Telegram-боты и AI-интеграции под ключ для бизнеса в Минске и Беларуси: запуск, автоматизация и рост заявок."
-ogTitle: Bot Factory — цифровые продукты для бизнеса в Беларуси
+title: Сайты, Telegram-боты и AI-интеграции в Минске
+description: "Сайты, Telegram-боты и AI-интеграции под ключ для бизнеса в Минске и Беларуси: запуск, автоматизация и рост заявок."
+ogTitle: Цифровые продукты для бизнеса в Беларуси
 ogDescription: Сайты, Telegram-боты, Mini Apps и AI-интеграции под ключ для бизнеса в Минске и Беларуси.
-twitterTitle: Bot Factory — сайты, боты и AI-интеграции
+twitterTitle: Сайты, боты и AI-интеграции для бизнеса
 twitterDescription: Цифровые продукты под ключ для бизнеса в Минске и Беларуси.
-ogImageAlt: Bot Factory — цифровые продукты для бизнеса
+ogImageAlt: Сайты и боты для бизнеса в Минске
 canonicalPath: /
 ---
 {% extends "layouts/base.njk" %}
@@ -25,10 +25,10 @@ canonicalPath: /
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "name": {{ site.brand | dump | safe }},
+      "name": "Сайты и боты для бизнеса",
       "url": "{{ site.domain }}/",
       "image": "{{ site.domain }}{{ site.defaultOgImage }}",
-      "description": "Bot Factory делает сайты, Telegram-боты, Mini Apps и AI-интеграции под ключ для бизнеса в Минске и Беларуси.",
+      "description": "Сайты, Telegram-боты, Mini Apps и AI-интеграции под ключ для бизнеса в Минске и Беларуси.",
       "email": {{ site.email | dump | safe }},
       "telephone": {{ site.phoneRaw | dump | safe }},
       "priceRange": "BYN 690 - BYN 3490",
@@ -84,9 +84,9 @@ canonicalPath: /
 {% block body %}
     <main id="top">
 {% set hero = {
-  terminalPath: 'botfactory://launch',
+  terminalPath: './launch',
   monoLabel: '[ Минск · Беларусь · 2026 ]',
-  promptUser: 'bf@studio',
+  promptUser: 'dev@studio',
   promptDir: '~/digital-products',
   promptCommand: '$ run growth-system',
   h1Lines: ['Делаем цифровые', 'продукты которые'],
