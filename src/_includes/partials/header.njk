@@ -5,10 +5,14 @@
       <nav class="desktop-nav" aria-label="Основная навигация">
         <a href="{{ anchorBase }}#services">Услуги</a>
         <a href="{{ anchorBase }}#process">Процесс</a>
-        <a href="{{ anchorBase }}#contact">Контакты</a>
+        <a href="/contacts/"{% if page.url == '/contacts/' %} aria-current="page"{% endif %}>Контакты</a>
       </nav>
 
+      {% if page.url == '/contacts/' %}
+      <a class="btn btn--primary header-cta" href="/">На главную</a>
+      {% else %}
       <a class="btn btn--primary header-cta" href="/contacts/">Связаться с нами</a>
+      {% endif %}
       <button
         class="menu-toggle"
         type="button"
