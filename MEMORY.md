@@ -4,6 +4,12 @@
 
 ---
 
+## 2026-05-24 — Сменили Telegram-username, основной CTA теперь ведёт на /contacts/
+
+- Telegram-username: `botfactoryby` → `minsksite` (везде, кроме email-адреса — он остаётся `botfactoryby@gmail.com`). Источник правды — `_data/site.js → telegram`; всё ещё есть 4 хардкодных URL в Final CTA блоке `index.njk` (там пришлось правил руками).
+- CTA «Обсудить проект» (header / mobile-menu / hero default) переименован в «Связаться с нами» и теперь ведёт на новую страницу `/contacts/`, а не на Telegram напрямую. Мотивация — собрать все каналы связи в одно место.
+- Final CTA блок на главной (`#contact`) намеренно оставлен с прямыми кнопками Telegram/email/phone — там кнопки называются иначе («Получить концепт» / «Узнать»), и они работают как короткий путь без перехода на /contacts/.
+
 ## 2026-05-23 — Выбран production-домен: business-site.by
 
 Заглушку `https://example.com` заменили на `https://business-site.by`. Изменилось одно поле `domain` в `src/_data/site.js` + хардкодные URL в `src/static/llms.txt` и `src/static/robots.txt` (там не шаблон). Всё canonical / OG / sitemap / JSON-LD автоматически подтянулось.
