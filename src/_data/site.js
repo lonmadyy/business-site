@@ -14,4 +14,8 @@ module.exports = {
     ymCounter: 109388514,
     ga4Id: "G-ZQZMG72QGD",
   },
+  verification: {
+    google: "",
+    yandex: "",
+  },
 };
