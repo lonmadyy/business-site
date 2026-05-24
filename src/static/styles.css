@@ -1807,9 +1807,14 @@ a.contact-card:hover {
     gap: 32px;
   }
 
+  .service-list {
+    margin-inline: -16px;
+  }
+
   .service-row {
     min-height: 94px;
     grid-template-columns: 44px 1fr 28px;
+    padding-inline: 16px;
   }
 
   .service-row em {
