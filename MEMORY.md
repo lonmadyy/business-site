@@ -4,6 +4,34 @@
 
 ---
 
+## 2026-05-24 — Деплой: GitHub + Vercel + business-site.by
+
+**GitHub:** `https://github.com/lonmadyy/business-site` (public, owner `lonmadyy`). Push'ил из основного репозитория (`C:\Users\Yegor\Documents\New project 3`), сначала fast-forward merge `claude/jovial-merkle-111e0a` → `master` (33 коммита).
+
+**Vercel:**
+- Team: `yegor's projects` (slug `yegors-projects-e385447e`, Hobby plan)
+- Project: `business-site` (auto-detected Eleventy framework)
+- Production URL: `business-site-ruby.vercel.app`
+- Custom domains: `business-site.by` (apex) + `www.business-site.by` (с 307 redirect apex → www)
+- Auto-deploy: на каждый push в `master`
+
+**DNS (через domain.by → «DNS-редактор»):**
+- `business-site.by.` **A** → `216.198.79.1` (TTL 3600)
+- `www.business-site.by.` **CNAME** → `437fd82dd5302c33.vercel-dns-017.com.` (TTL 3600)
+
+NS-серверы домена при включении DNS-редактора автоматически переключились на `a1.domain.by`, `a2.domain.by`. DS/DNSSEC были стёрты.
+
+**Подводный камень domain.by:** в форме «Добавить запись»:
+- Поле «имя» для apex оставлять **пустым** (синтаксис `@` валидатор отвергает)
+- TTL обязателен — без него запись не сохраняется
+- Type dropdown — native `<select>`; чтобы выбрать через automation, click + keyboard letter (`a` → A, `c` → CNAME) + Enter, иначе value-attribute меняется но change-event не триггерится
+
+**Что осталось:**
+- SSL для Vercel выпустится сам (Let's Encrypt, ~30-60 сек после полной propagation в публичных DNS)
+- GlobalSign SSL-сертификат от domain.by — отдельная история, для него нужно прописать TXT `_globalsign-domain-verification` = `kCVVFScxerLNgydl520bxTqcTTZayNo1jxc5EIFp28`. На Vercel этот SSL не нужен (там свой Let's Encrypt), но если cert куплен и хочется чтобы был выпущен — добавить можно
+- GA4 Key Events разметить после первого реального трафика
+- Verification-меты Google Search Console и Я.Вебмастер — для будущего SEO-мониторинга
+
 ## 2026-05-24 — Аналитика: Yandex.Metrika 109388514, GA4 G-ZQZMG72QGD
 
 Поставили оба счётчика, оба активны на всех страницах через `partials/analytics.njk`. Yandex включён с webvisor + clickmap + ecommerce(dataLayer) + accurateTrackBounce + trackLinks. GA4 — с `anonymize_ip: true`. IDs хранятся в `_data/site.js → site.analytics`.
