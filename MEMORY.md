@@ -4,6 +4,45 @@
 
 ---
 
+## 2026-05-24 — Полная настройка аналитики и индексации
+
+**Реализовано через комбинацию: код + Claude in Chrome (UI-автоматизация).**
+
+### Код (commit `242eeb0`)
+- `src/_includes/partials/vercel-analytics.njk` — подключает Vercel Web Analytics + Speed Insights (`/_vercel/insights/script.js`, `/_vercel/speed-insights/script.js`). Активны после включения в Vercel UI.
+- `site.verification.{google, yandex}` в `_data/site.js` → условные meta-теги в `<head>` (`google-site-verification`, `yandex-verification`). Пустые → не рендерятся.
+- `src/sitemap.njk` уже существовал — генерирует `/sitemap.xml` со всеми 6 URL.
+
+### Vercel (https://vercel.com/yegors-projects-e385447e/business-site)
+- **Web Analytics — включён** (Hobby plan, 50k events/мес, 30 дней истории). Скрипт уже в HTML, начнёт собирать после следующего визита.
+- **Speed Insights — НЕ включён.** Hobby ограничивает Speed Insights одним проектом за раз; при включении ругается. Попробовать вернуться позже, если станет приоритетом. Скрипт уже в HTML — включится сразу при активации в UI.
+
+### Google Search Console (https://search.google.com/search-console)
+- Property: `https://www.business-site.by/` (URL-prefix).
+- **Verified автоматически через GA4** (gtag.js на сайте, GA4 связан с тем же Google-аккаунтом → GSC сам подхватил).
+- **Sitemap отправлен:** `sitemap.xml` (статус «Не получено» — норма для свежих, обработается за часы-дни).
+- **URL Inspection → Запросить индексирование** для всех 6 страниц: `/`, `/contacts/`, `/sites/`, `/telegram-bots/`, `/mini-apps/`, `/ai/`. Главная уже была в индексе, остальные — поставлены в очередь.
+
+### Я.Вебмастер (https://webmaster.yandex.ru/site/https:www.business-site.by:443/)
+- **Verification:** meta-тег `<meta name="yandex-verification" content="69ef24829f993370" />` → вписан в `site.verification.yandex` → задеплоен → подтверждено (commit `cadf354`). Роль: Владелец.
+- **Sitemap добавлен:** `https://www.business-site.by/sitemap.xml` (в очереди на обработку, до 1-2 недель).
+- **Переобход страниц:** все 6 URL отправлены через «Индексирование → Переобход страниц». Дневной лимит 150 адресов, использовали 6.
+
+### Google Analytics 4 (G-ZQZMG72QGD, property `business-site.by` ID `538699686`, поток `14934565920`)
+- **Key Events помечены** (Admin → События → Недавние события → ⭐): `cta_contacts_click`, `telegram_click`, `service_click`. Остались для будущего: `email_click`, `phone_click` — появятся в Events после первых fire'ов, тогда вернуться и пометить.
+- **Internal Traffic filter:**
+  - Создал правило **Owner IP** (`216.247.106.110/32` CIDR) в `Поток данных → Настройка тега → Определение внутреннего трафика`. Значение `traffic_type = internal`.
+  - Активировал **Internal Traffic data filter** (Admin → Фильтры данных → ⋮ → Активировать). Статус «Активно». ⚠️ изменения **необратимы** — если IP поменяется (динамический), данные за период с этим IP будут отфильтрованы навсегда.
+
+### Я.Метрика (counter 109388514)
+- **«Не учитывать мои визиты»** включён (Настройки → Фильтры → toggle ON). Это исключает визиты с авторизованного Я-аккаунта (`egorik-shevelyov`) — проще чем IP, ловит даже мобильные/смены сети.
+- За первые сутки уже 30 визитов, 25 посетителей, 1 достижение цели (`/contacts/`).
+
+### Что осталось когда трафик пойдёт
+- GA4: пометить `email_click` + `phone_click` как Key Events (после первого fire).
+- Vercel Speed Insights: попробовать активировать снова, если интересны Core Web Vitals в реал-тайме.
+- Когда IP сменится (динамический): обновить правило Owner IP в GA4.
+
 ## 2026-05-24 — Деплой: GitHub + Vercel + business-site.by
 
 **GitHub:** `https://github.com/lonmadyy/business-site` (public, owner `lonmadyy`). Push'ил из основного репозитория (`C:\Users\Yegor\Documents\New project 3`), сначала fast-forward merge `claude/jovial-merkle-111e0a` → `master` (33 коммита).
