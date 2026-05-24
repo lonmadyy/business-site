@@ -1808,7 +1808,9 @@ a.contact-card:hover {
   }
 
   .service-list {
-    margin-inline: -16px;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
   }
 
   .service-row {

@@ -7,7 +7,7 @@ module.exports = {
   domain: "https://business-site.by",
   locale: "ru_BY",
   themeColor: "#0a0b0a",
-  cssVersion: "20260524-svc-edge",
+  cssVersion: "20260524-svc-fullbleed",
   jsVersion: "20260524-copy-1",
   defaultOgImage: "/assets/og-image.png",
   analytics: {
