@@ -16,6 +16,6 @@ module.exports = {
   },
   verification: {
     google: "",
-    yandex: "",
+    yandex: "69ef24829f993370",
   },
 };
